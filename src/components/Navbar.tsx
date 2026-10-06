@@ -1,14 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
-
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState("EN");
+  const onHome = pathname === "/";
 
   const navLinks = [
     { name: "Why Niro", href: "#why-niro" },
@@ -30,8 +31,9 @@ export default function Navbar() {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
-    e.preventDefault();
     setMobileMenuOpen(false);
+    if (!onHome) return;
+    e.preventDefault();
     const target = document.querySelector(href);
     if (target) {
       target.scrollIntoView({ behavior: "smooth" });
@@ -40,11 +42,14 @@ export default function Navbar() {
   };
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
     setMobileMenuOpen(false);
+    if (!onHome) return;
+    e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
     window.history.pushState(null, "", "/");
   };
+
+  const sectionHref = (hash: string) => (onHome ? hash : `/${hash}`);
 
   return (
     <header className="niro-navbar">
@@ -71,7 +76,7 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <a
               key={link.name}
-              href={link.href}
+              href={sectionHref(link.href)}
               onClick={(e) => handleNavClick(e, link.href)}
               className="text-[#ededed] hover:text-[#4DD7CB] font-medium text-[16px] leading-[24px] tracking-[0px] text-center transition-colors duration-150 inline-block cursor-pointer"
               style={{ fontFamily: "var(--font-inter), 'Inter', sans-serif" }}
@@ -213,7 +218,7 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <a
               key={link.name}
-              href={link.href}
+              href={sectionHref(link.href)}
               onClick={(e) => handleNavClick(e, link.href)}
               className="text-[#ededed] hover:text-[#4DD7CB] font-medium text-[16px] leading-[24px] py-1 transition-colors cursor-pointer"
             >

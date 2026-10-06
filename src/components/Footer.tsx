@@ -113,13 +113,13 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-8 text-white text-[16px] leading-[24px] font-normal">
             <Link
-              href="#terms"
+              href="/terms"
               className="text-white hover:text-[#4DD7CB] transition-colors"
             >
               Terms &amp; Conditions
             </Link>
             <Link
-              href="#privacy"
+              href="/privacy"
               className="text-white hover:text-[#4DD7CB] transition-colors"
             >
               Privacy Policy

@@ -68,7 +68,9 @@ export default function MapFeaturesSection() {
         <div className="niro-map-container">
           {/* Main Section Heading: Inter 800 Extra Bold, 42px size, 54px line-height */}
           <h2 className="niro-map-heading reveal-on-scroll">
-            A Map That Changes With What’s
+            <span className="niro-map-heading-line">
+              A Map That Changes With What’s
+            </span>
             <span className="niro-map-heading-span">
               Happening Around You.
             </span>
