@@ -1,0 +1,1397 @@
+/* ==========================================================================
+   NIRO Responsive Stylesheet
+   Dedicated stylesheet for Mobile, Tablet, and Desktop responsive handling
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. NAVBAR RESPONSIVE
+   -------------------------------------------------------------------------- */
+.niro-navbar {
+  width: 100%;
+  background-color: #000000;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: none;
+}
+
+.niro-navbar-inner {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (min-width: 640px) {
+  .niro-navbar-inner {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .niro-navbar-inner {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+@media (max-width: 639px) {
+  .niro-navbar-inner {
+    height: 64px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO BANNER RESPONSIVE
+   -------------------------------------------------------------------------- */
+.niro-hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  height: calc(100vh - 74px);
+  max-height: 1080px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #000000;
+  user-select: none;
+}
+
+.niro-hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+}
+
+.niro-hero-title {
+  color: #ffffff;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 auto;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.85);
+  font-size: clamp(28px, 5.5vw, 74px);
+}
+
+@media (max-width: 639px) {
+  .niro-hero-section {
+    min-height: 440px;
+    height: calc(100vh - 64px);
+  }
+  .niro-hero-title {
+    font-size: clamp(26px, 7vw, 36px);
+    line-height: 1.2;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .niro-hero-section {
+    min-height: 560px;
+    height: 70vh;
+  }
+  .niro-hero-title {
+    font-size: clamp(40px, 6vw, 56px);
+    line-height: 1.16;
+  }
+}
+
+@media (min-width: 1024px) {
+  .niro-hero-title {
+    font-size: clamp(56px, 4.8vw, 74px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. SECOND SECTION (MAP FEATURES) RESPONSIVE
+   -------------------------------------------------------------------------- */
+.niro-map-section {
+  position: relative;
+  width: 100%;
+  background-color: #02050b;
+  overflow: hidden;
+  user-select: none;
+  padding-top: 100px;
+  padding-bottom: 120px;
+}
+
+/* Container matching Figma Layout: Width 697px, Gap 24px */
+.niro-map-container {
+  width: 100%;
+  max-width: 697px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Section Heading matching Figma specs: Inter 800 Extra Bold, 42px size, 54px line height, Width 697px */
+.niro-map-heading {
+  color: #ffffff;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-weight: 800;
+  font-size: 42px;
+  line-height: 54px;
+  letter-spacing: 0px;
+  text-align: center;
+  width: 100%;
+  max-width: 697px;
+  margin: 0;
+}
+
+.niro-map-heading-span {
+  display: block;
+  font-weight: 800;
+  font-size: 42px;
+  line-height: 54px;
+  letter-spacing: 0px;
+}
+
+/* Comparison Pill / Box matching banner.png (Width 566px) */
+.niro-comparison-card {
+  width: 100%;
+  max-width: 566px;
+  padding: 16px 28px;
+  border-radius: 16px;
+  background-color: rgba(6, 20, 38, 0.85);
+  border: 1px solid rgba(19, 60, 94, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(4, 18, 34, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4px;
+  transition: all 0.25s ease;
+}
+
+.niro-comparison-card:hover {
+  border-color: rgba(77, 215, 203, 0.4);
+  box-shadow: 0 4px 34px rgba(77, 215, 203, 0.15);
+}
+
+.niro-comparison-muted {
+  color: #64748b;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 400;
+  text-decoration: line-through;
+  letter-spacing: 0px;
+  margin: 0;
+}
+
+/* Exact Figma specs: Inter Bold 700, 18px size, 28px line-height, Signal Aqua #4DD7CB */
+.niro-comparison-highlight {
+  color: #4dd7cb;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 700;
+  letter-spacing: 0px;
+  text-align: center;
+  margin: 0;
+}
+
+/* Feature Showcase (Megaphone + Content) */
+.niro-feature-wrapper {
+  margin-top: 64px;
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.niro-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  justify-content: center;
+}
+
+/* Exact Figma component `icon`: Fixed 135.13px x 135.13px */
+.niro-feature-icon-box {
+  position: relative;
+  width: 135.13px;
+  height: 135.13px;
+  min-width: 135.13px;
+  min-height: 135.13px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3.6px;
+}
+
+.niro-feature-icon-box img {
+  filter: drop-shadow(0 0 20px rgba(77, 215, 203, 0.45));
+  transition: transform 0.3s ease;
+}
+
+.niro-feature-item:hover .niro-feature-icon-box img {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+.niro-feature-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.niro-feature-tag {
+  color: #4dd7cb;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+
+.niro-feature-title {
+  color: #ffffff;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.niro-feature-desc {
+  color: #9ca3af;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 25px;
+  max-width: 380px;
+  margin: 0;
+}
+
+/* Carousel Dots */
+.niro-carousel-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 36px;
+}
+
+.niro-carousel-dot {
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+
+.niro-carousel-dot.active {
+  width: 10px;
+  height: 10px;
+  background-color: #4dd7cb;
+  box-shadow: 0 0 10px rgba(77, 215, 203, 0.85);
+}
+
+.niro-carousel-dot.inactive {
+  width: 8px;
+  height: 8px;
+  background-color: #2d3f52;
+}
+
+.niro-carousel-dot.inactive:hover {
+  background-color: #435d7a;
+}
+
+/* ==========================================================================
+   TABLET RESPONSIVE RULES (640px to 1023px)
+   ========================================================================== */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .niro-map-section {
+    padding-top: 64px;
+    padding-bottom: 80px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .niro-map-heading,
+  .niro-map-heading-span {
+    font-size: 34px;
+    line-height: 44px;
+  }
+
+  .niro-comparison-card {
+    max-width: 560px;
+    padding: 14px 22px;
+  }
+
+  .niro-comparison-highlight {
+    font-size: 17px;
+    line-height: 26px;
+  }
+
+  .niro-feature-wrapper {
+    margin-top: 48px;
+    max-width: 520px;
+  }
+
+  .niro-feature-item {
+    gap: 20px;
+  }
+
+  .niro-feature-icon-box {
+    width: 120px;
+    height: 120px;
+    min-width: 120px;
+    min-height: 120px;
+  }
+
+  .niro-feature-title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE RULES (Max Width: 639px)
+   ========================================================================== */
+@media (max-width: 639px) {
+  .niro-map-section {
+    padding-top: 52px;
+    padding-bottom: 64px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .niro-map-container {
+    gap: 16px;
+  }
+
+  .niro-map-heading,
+  .niro-map-heading-span {
+    font-size: clamp(22px, 6.2vw, 28px);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  .niro-comparison-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 14px 18px;
+    border-radius: 14px;
+    gap: 4px;
+  }
+
+  .niro-comparison-muted {
+    font-size: 13px;
+    line-height: 19px;
+  }
+
+  .niro-comparison-highlight {
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 700;
+  }
+
+  .niro-feature-wrapper {
+    margin-top: 40px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Compact side-by-side or stacked on mobile for optimal legibility */
+  .niro-feature-item {
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+    text-align: left;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .niro-feature-icon-box {
+    width: 90px;
+    height: 90px;
+    min-width: 90px;
+    min-height: 90px;
+    flex-shrink: 0;
+  }
+
+  .niro-feature-tag {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .niro-feature-title {
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 4px;
+  }
+
+  .niro-feature-desc {
+    font-size: 14px;
+    line-height: 21px;
+    max-width: 100%;
+  }
+
+  .niro-carousel-dots {
+    margin-top: 28px;
+    gap: 7px;
+  }
+}
+
+/* ==========================================================================
+   EXTRA SMALL MOBILE (Max Width: 380px - iPhone SE, Small screens)
+   ========================================================================== */
+@media (max-width: 380px) {
+  .niro-map-heading,
+  .niro-map-heading-span {
+    font-size: 21px;
+    line-height: 28px;
+  }
+
+  .niro-comparison-card {
+    padding: 10px 12px;
+  }
+
+  .niro-comparison-muted {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .niro-comparison-highlight {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .niro-feature-item {
+    gap: 14px;
+  }
+
+  .niro-feature-icon-box {
+    width: 60px;
+    height: 60px;
+  }
+
+  .niro-feature-title {
+    font-size: 19px;
+    line-height: 24px;
+  }
+
+  .niro-feature-desc {
+    font-size: 13px;
+    line-height: 18px;
+  }
+}
+
+/* ==========================================================================
+   LARGE DESKTOP (Min Width: 1440px)
+   ========================================================================== */
+@media (min-width: 1440px) {
+  .niro-map-heading,
+  .niro-map-heading-span {
+    font-size: 42px;
+    line-height: 54px;
+  }
+
+  .niro-comparison-highlight {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+/* ==========================================================================
+   4. THIRD SECTION (LIVE UPDATES / PHONE SHOWCASE) RESPONSIVE
+   Exact Figma CSS Implementation
+   ========================================================================== */
+
+/* Section: background rgba(6, 9, 19, 0.7) */
+.niro-updates-section {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 70px 40px;
+  position: relative;
+  width: 100%;
+  background: rgba(6, 9, 19, 0.7);
+  overflow: hidden;
+  user-select: none;
+}
+
+@media (min-width: 1280px) {
+  .niro-updates-section {
+    padding: 70px 60px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .niro-updates-section {
+    padding: 70px 80px;
+  }
+}
+
+/* Frame 19: row layout, max-width 1380px */
+.niro-updates-frame-19 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px;
+  gap: 36px;
+  isolation: isolate;
+  width: 100%;
+  max-width: 1380px;
+  position: relative;
+}
+
+/* Vector 3129: Ambient Glow */
+.niro-updates-vector-3129 {
+  position: absolute;
+  width: 593.42px;
+  height: 336.16px;
+  left: -120px;
+  top: -40px;
+  background: linear-gradient(180deg, rgba(7, 67, 252, 0.3) 0%, rgba(77, 215, 203, 0.3) 100%);
+  filter: blur(140.625px);
+  border-radius: 10px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Frame 5: Left Phone Mockup Column - matched to reference image */
+.niro-updates-frame-5 {
+  width: 52%;
+  max-width: 660px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.niro-phone-image-container {
+  width: 100%;
+  max-width: 485px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Right Container: 650px Auto Layout, Gap 42px */
+.niro-updates-right-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 42px;
+  width: 650px;
+  max-width: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Frame 7: Heading 3 */
+.niro-updates-frame-7 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 9.5px;
+  width: 100%;
+}
+
+/* What’s Happening Around You Is Always Changing. Your Map Should Change Too. */
+.niro-updates-heading {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 42px;
+  line-height: 54px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+/* Component 6: Gap 32px, blur 7px, border-radius 16px */
+.niro-updates-component-6 {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 32px;
+  width: 100%;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border-radius: 16px;
+}
+
+.niro-updates-subheading-block {
+  width: 100%;
+}
+
+/* Businesses Can Make Updates: 18px / 24px #4DD7CB */
+.niro-updates-subheading-title {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: #4DD7CB;
+  margin: 0 0 6px 0;
+}
+
+.niro-updates-subheading-desc {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 23px;
+  color: #9CA3AF;
+  margin: 0;
+}
+
+/* Container: 3x2 Grid Cards, width 646px, gap 14px */
+.niro-updates-cards-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding: 0px;
+  gap: 14px;
+  width: 646px;
+  max-width: 100%;
+}
+
+/* Overlay+Border: width 206px, height 90px, border 1px solid #15203D, border-radius 12px */
+.niro-feature-pill {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 16px 18.5px;
+  gap: 13.5px;
+  width: 206px;
+  height: 90px;
+  border: 1px solid #15203D;
+  border-radius: 12px;
+  background: rgba(6, 9, 19, 0.7);
+  transition: all 0.25s ease;
+}
+
+.niro-feature-pill:hover {
+  border-color: #4DD7CB;
+  background: rgba(7, 67, 252, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(77, 215, 203, 0.15);
+}
+
+.niro-feature-icon-wrapper {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Feature Pill Text: 16px / 16px #E2E8F0 Mystic */
+.niro-feature-pill-text {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  color: #E2E8F0;
+  white-space: nowrap;
+}
+
+/* Frame 8: Gap 32px */
+.niro-updates-frame-8 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 32px;
+  width: 100%;
+}
+
+/* Callout Box: width 650px, height 117px, gradient bg, border 1px solid #24345E */
+.niro-updates-callout-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 12px 30px;
+  width: 650px;
+  max-width: 100%;
+  min-height: 117px;
+  background: linear-gradient(90.55deg, rgba(7, 67, 252, 0.1) 0.09%, rgba(77, 215, 203, 0.1) 101.69%);
+  border: 1px solid #24345E;
+  border-radius: 12px;
+}
+
+/* Change It. Publish It. It’s Live.: 18px / 30px, letter-spacing 0.1em, uppercase, #FFFFFF */
+.niro-updates-callout-title {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 30px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0 0 4px 0;
+}
+
+.niro-updates-callout-desc {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  color: #9CA3AF;
+  margin: 0;
+}
+
+/* Section Closing Hook: 16px / 28px #9CA3AF */
+.niro-updates-footer-text {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: #9CA3AF;
+  margin: 0;
+}
+
+/* ==========================================================================
+   TABLET RESPONSIVE RULES (640px to 1180px)
+   ========================================================================== */
+@media (max-width: 1180px) and (min-width: 640px) {
+  .niro-updates-section {
+    padding: 60px 32px;
+  }
+  .niro-updates-frame-19 {
+    flex-direction: column;
+    gap: 44px;
+  }
+  .niro-updates-frame-5,
+  .niro-updates-right-container {
+    width: 100%;
+    max-width: 650px;
+  }
+  .niro-updates-cards-container {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE RULES (Max Width: 639px)
+   ========================================================================== */
+@media (max-width: 639px) {
+  .niro-updates-section {
+    padding: 48px 16px;
+  }
+  .niro-updates-frame-19 {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .niro-updates-frame-5,
+  .niro-updates-right-container {
+    width: 100%;
+    max-width: 100%;
+    gap: 32px;
+  }
+  .niro-updates-heading {
+    font-size: clamp(23px, 6vw, 32px);
+    line-height: 1.25;
+  }
+  .niro-updates-cards-container {
+    width: 100%;
+    gap: 10px;
+    justify-content: space-between;
+  }
+  .niro-feature-pill {
+    width: calc(50% - 5px);
+    height: auto;
+    min-height: 84px;
+    padding: 12px 8px;
+    gap: 8px;
+  }
+  .niro-feature-pill-text {
+    font-size: 13px;
+    line-height: 16px;
+    white-space: normal;
+  }
+  .niro-updates-callout-card {
+    padding: 16px 18px;
+    width: 100%;
+    min-height: auto;
+  }
+  .niro-updates-callout-title {
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: 0.05em;
+  }
+  .niro-updates-callout-desc {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .niro-updates-footer-text {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+@media (max-width: 380px) {
+  .niro-updates-cards-container {
+    flex-direction: column;
+  }
+  .niro-feature-pill {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   5. ADDITIONAL LANDING PAGE SECTIONS (1.png to 6.png)
+   ========================================================================== */
+.niro-change-offer-section {
+  position: relative;
+  width: 100%;
+  background: #000000;
+  overflow: hidden;
+  user-select: none;
+  padding-top: 100px;
+  padding-bottom: 110px;
+}
+
+.niro-search-vs-live-section {
+  position: relative;
+  width: 100%;
+  background: #030611;
+  background: radial-gradient(ellipse at 80% 30%, rgba(7, 67, 252, 0.12) 0%, rgba(3, 6, 17, 0.98) 60%), #030611;
+  overflow: hidden;
+  user-select: none;
+  padding-top: 100px;
+  padding-bottom: 110px;
+}
+
+.niro-go-live-section {
+  position: relative;
+  width: 100%;
+  background: #000000;
+  overflow: hidden;
+  user-select: none;
+  padding-top: 100px;
+  padding-bottom: 110px;
+}
+
+.niro-food-truck-section {
+  position: relative;
+  width: 100%;
+  background: #030611;
+  background: radial-gradient(ellipse at 20% 50%, rgba(7, 67, 252, 0.14) 0%, rgba(3, 6, 17, 0.98) 60%), #030611;
+  overflow: hidden;
+  user-select: none;
+  padding-top: 100px;
+  padding-bottom: 110px;
+}
+
+/* ==========================================================================
+   5. HOW IT WORKS (LIVE MAP WORKFLOW)
+   Desktop frame matches the 1920 reference: 1600px panel, 160px side gutters.
+   ========================================================================== */
+.niro-how-it-works-section {
+  position: relative;
+  width: 100%;
+  background: #000000;
+  overflow: hidden;
+  user-select: none;
+  padding: 0;
+  border-top: none;
+}
+
+.niro-livemap-frame {
+  position: relative;
+  width: min(1600px, calc(100% - 48px));
+  margin: 0 auto;
+  box-sizing: border-box;
+  border: 1px solid rgba(186, 198, 220, 0.22);
+  background:
+    radial-gradient(ellipse 78% 58% at 50% -8%, rgba(14, 48, 120, 0.55) 0%, rgba(6, 18, 48, 0.28) 42%, rgba(0, 0, 0, 0) 72%),
+    #000000;
+  padding: 96px clamp(28px, 8.5%, 136px) 68px;
+  overflow: hidden;
+}
+
+/* Exact Image 1 Typography: Inter 900 Black, 42px size, 54px line height - ONE SINGLE LINE */
+.niro-livemap-title {
+  color: #ffffff;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-weight: 900;
+  font-size: 42px;
+  line-height: 54px;
+  letter-spacing: 0px;
+  text-align: center;
+  max-width: none;
+  white-space: nowrap;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Exact Image 1 Subtitle: Inter 400 Regular, 18px size, 28px line height - EXACT 2 LINES */
+.niro-livemap-subtitle {
+  margin-top: 22px;
+  color: #9ca3af;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0%;
+  text-align: center;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.niro-livemap-subtitle p {
+  margin: 0;
+}
+
+/* 4 Process Cards Row with Connecting Arrows - Exact Image 1 */
+.niro-flow-cards-row {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.niro-flow-card {
+  flex: 1;
+  min-height: 168px;
+  padding: 28px 16px 24px;
+  border-radius: 16px;
+  background: rgba(7, 12, 24, 0.72);
+  border: 1px solid rgba(36, 52, 84, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.niro-flow-card:hover {
+  border-color: #4dd7cb;
+  background: rgba(7, 67, 252, 0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(77, 215, 203, 0.25);
+}
+
+.niro-flow-card-title {
+  color: #ffffff;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 15.5px;
+  line-height: 22px;
+  margin: 0;
+  transition: color 0.2s ease;
+  max-width: 220px;
+}
+
+.niro-flow-arrow {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #4dd7cb;
+  padding: 0 2px;
+}
+
+@media (min-width: 1024px) {
+  .niro-flow-arrow {
+    display: flex;
+  }
+}
+
+/* Bottom Tagline: Exact typography matching Image 1 */
+.niro-flow-tagline {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.niro-flow-tagline p {
+  color: #ffffff;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.niro-flow-tagline-highlight {
+  color: #4dd7cb;
+}
+
+/* Tablet Padding Rules */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .niro-change-offer-section,
+  .niro-search-vs-live-section,
+  .niro-go-live-section,
+  .niro-food-truck-section {
+    padding-top: 70px;
+    padding-bottom: 75px;
+  }
+
+  .niro-livemap-frame {
+    width: calc(100% - 32px);
+    padding: 64px 28px 48px;
+  }
+
+  .niro-livemap-title {
+    white-space: normal;
+  }
+
+  .niro-flow-cards-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .niro-livemap-title {
+    font-size: 34px;
+    line-height: 44px;
+  }
+
+  .niro-livemap-subtitle {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+/* ==========================================================================
+   FOOTER (Exact Image 1 spacing: 85px gap from tagline to logo)
+   ========================================================================== */
+.niro-footer {
+  width: 100%;
+  background-color: #000000;
+  border-top: none;
+  position: relative;
+  user-select: none;
+  overflow: hidden;
+}
+
+.niro-footer-inner {
+  width: min(1600px, calc(100% - 48px));
+  margin-left: auto;
+  margin-right: auto;
+  padding: 60px 0 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: auto;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+.niro-footer-contacts {
+  margin-top: 32px;
+  gap: 36px;
+}
+
+.niro-footer-bottom-row {
+  width: 100%;
+  margin-top: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffffff;
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+@media (max-width: 768px) {
+  .niro-footer-inner {
+    width: calc(100% - 32px);
+    padding-top: 40px;
+    padding-bottom: 28px;
+    min-height: auto;
+  }
+  .niro-footer-contacts {
+    margin-top: 22px;
+    gap: 14px 22px;
+  }
+  .niro-footer-bottom-row {
+    margin-top: 36px;
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+  }
+}
+
+/* Mobile Padding Rules */
+@media (max-width: 639px) {
+  .niro-change-offer-section,
+  .niro-search-vs-live-section,
+  .niro-go-live-section,
+  .niro-food-truck-section {
+    padding-top: 50px;
+    padding-bottom: 55px;
+  }
+
+  .niro-livemap-frame {
+    width: calc(100% - 24px);
+    padding: 48px 16px 36px;
+  }
+
+  .niro-flow-cards-row {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .niro-flow-arrow {
+    display: flex;
+  }
+
+  .niro-flow-card {
+    min-height: 132px;
+    width: 100%;
+  }
+
+  .niro-flow-tagline {
+    margin-top: 28px;
+  }
+
+  .niro-livemap-title {
+    white-space: normal;
+    font-size: clamp(26px, 7vw, 36px);
+    line-height: 1.25;
+  }
+
+  .niro-livemap-subtitle {
+    font-size: 15px;
+    line-height: 22px;
+    margin-top: 12px;
+  }
+}
+/* ==========================================================================
+   6. SCROLL ANIMATIONS & MICRO-INTERACTIONS
+   ========================================================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure sticky navbar doesn't cover section tops when scrolling to anchor IDs */
+.niro-hero-section,
+.niro-map-section,
+.niro-updates-section,
+.niro-change-offer-section,
+.niro-search-vs-live-section,
+.niro-go-live-section,
+.niro-food-truck-section,
+.niro-how-it-works-section {
+  scroll-margin-top: 74px;
+}
+
+/* Base scroll reveal state with subtle blur & transform */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(36px);
+  filter: blur(4px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.85s ease;
+  will-change: opacity, transform, filter;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0px);
+}
+
+/* Fade without translation */
+.reveal-on-scroll.reveal-fade {
+  transform: none;
+  filter: blur(4px);
+}
+.reveal-on-scroll.reveal-fade.is-revealed {
+  opacity: 1;
+  transform: none;
+  filter: blur(0px);
+}
+
+/* Slide in from left */
+.reveal-on-scroll.reveal-left {
+  transform: translateX(-48px);
+}
+.reveal-on-scroll.reveal-left.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide in from right */
+.reveal-on-scroll.reveal-right {
+  transform: translateX(48px);
+}
+.reveal-on-scroll.reveal-right.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Subtle zoom / scale in */
+.reveal-on-scroll.reveal-scale {
+  transform: scale(0.92);
+}
+.reveal-on-scroll.reveal-scale.is-revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger animation delays */
+.delay-75 { transition-delay: 75ms; }
+.delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-250 { transition-delay: 250ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-600 { transition-delay: 600ms; }
+
+/* Gentle floating animation for phones */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0.4deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-0.4deg);
+  }
+}
+
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatSlow 7s ease-in-out infinite 1.5s;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 6.5s ease-in-out infinite 0.8s;
+}
+
+/* Pulse glow animation for Signal Aqua accents */
+@keyframes pulseGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(77, 215, 203, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 24px rgba(77, 215, 203, 0.75));
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Ambient glow breathing animation */
+@keyframes ambientBreathe {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.08);
+  }
+}
+
+.animate-ambient-glow {
+  animation: ambientBreathe 6s ease-in-out infinite;
+}
+
+/* Subtle bounce for indicator arrow */
+@keyframes subtleBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.animate-subtle-bounce {
+  animation: subtleBounce 2s ease-in-out infinite;
+}
+
+/* Interactive Card & Button Hover Physics */
+.niro-feature-pill,
+.niro-comparison-card,
+.niro-updates-callout-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+
+button {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0px) scale(0.98);
+}
+
