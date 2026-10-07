@@ -264,6 +264,27 @@
   display: flex;
   flex-direction: column;
   text-align: left;
+  width: 420px;
+  max-width: calc(100% - 160px);
+  min-height: 132px;
+  animation: niro-feature-in 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes niro-feature-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .niro-feature-text {
+    animation: none;
+  }
 }
 
 .niro-feature-tag {
@@ -451,6 +472,13 @@
     flex-shrink: 0;
   }
 
+  .niro-feature-text {
+    width: auto;
+    flex: 1;
+    max-width: none;
+    min-height: 118px;
+  }
+
   .niro-feature-tag {
     font-size: 14px;
     line-height: 19px;
@@ -604,8 +632,9 @@
 
 /* Frame 5: Left Phone Mockup Column - matched to reference image */
 .niro-updates-frame-5 {
-  width: 52%;
-  max-width: 660px;
+  width: 650px;
+  max-width: 100%;
+  flex: 0 1 650px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -614,11 +643,23 @@
 }
 
 .niro-phone-image-container {
-  width: 100%;
-  max-width: 485px;
+  width: 650px;
+  max-width: 650px;
+  height: 776.91px;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
+}
+
+.niro-phone-image-container img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: contain;
 }
 
 /* Right Container: 650px Auto Layout, Gap 42px */
@@ -813,6 +854,25 @@
 /* ==========================================================================
    TABLET RESPONSIVE RULES (640px to 1180px)
    ========================================================================== */
+@media (min-width: 1280px) {
+  .niro-phone-split {
+    grid-template-columns: minmax(0, 1fr) 650px;
+  }
+
+  .niro-phone-split.phone-first {
+    grid-template-columns: 650px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 1279px) {
+  .niro-phone-image-container {
+    width: min(650px, 100%);
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 650 / 776.91;
+  }
+}
+
 @media (max-width: 1180px) and (min-width: 640px) {
   .niro-updates-section {
     padding: 60px 32px;
@@ -1305,6 +1365,61 @@ html {
 .reveal-on-scroll.reveal-scale.is-revealed {
   opacity: 1;
   transform: scale(1);
+}
+
+/* Headings write in from left to right when the section scrolls into view */
+.heading-write.reveal-on-scroll,
+.heading-write.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition: none;
+}
+
+.heading-write-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.heading-line {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  clip-path: inset(0 100% 0 0);
+}
+
+.heading-write.is-revealed .heading-line {
+  animation: heading-write-ltr 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.heading-write.is-revealed .heading-line:nth-child(2) {
+  animation-delay: 0.34s;
+}
+
+.heading-write.is-revealed .heading-line:nth-child(3) {
+  animation-delay: 0.68s;
+}
+
+.heading-write.is-revealed .heading-line:nth-child(4) {
+  animation-delay: 1.02s;
+}
+
+@keyframes heading-write-ltr {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heading-line {
+    clip-path: none;
+    animation: none;
+  }
 }
 
 /* Stagger animation delays */

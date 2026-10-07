@@ -48,10 +48,12 @@ export default function HeroBanner() {
           </span>
         </div>
 
-        <h1 className="niro-hero-title reveal-on-scroll delay-100">
-          See What’s Happening
-          <span className="block mt-1 sm:mt-2 text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-slate-200">
-            Around You Right Now.
+        <h1 className="niro-hero-title heading-write heading-write-center reveal-on-scroll delay-100">
+          <span className="heading-line">See What’s Happening</span>
+          <span className="heading-line mt-1 sm:mt-2">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-slate-200">
+              Around You Right Now.
+            </span>
           </span>
         </h1>
       </div>

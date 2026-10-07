@@ -8,11 +8,9 @@ import GoLiveMapSection from "@/components/GoLiveMapSection";
 import FoodTruckSection from "@/components/FoodTruckSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import Footer from "@/components/Footer";
-import ScrollAnimationProvider from "@/components/ScrollAnimationProvider";
 
 export default function Home() {
   return (
-    <ScrollAnimationProvider>
       <div className="min-h-screen bg-black text-white flex flex-col font-sans">
         <Navbar />
         <main className="flex-1">
@@ -44,6 +42,5 @@ export default function Home() {
         {/* Footer (6.png) */}
         <Footer />
       </div>
-    </ScrollAnimationProvider>
   );
 }

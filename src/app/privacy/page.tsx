@@ -109,7 +109,9 @@ export default function PrivacyPage() {
         <section className="niro-legal-page">
           <div className="niro-legal-hero">
             <p className="niro-legal-kicker">Legal</p>
-            <h1 className="niro-legal-title">Privacy Policy</h1>
+            <h1 className="niro-legal-title heading-write heading-write-center reveal-on-scroll">
+              <span className="heading-line">Privacy Policy</span>
+            </h1>
             <p className="niro-legal-intro">
               This Privacy Policy describes how Niro (“we,” “us,” or “our”)
               collects, uses, shares, and protects information in connection
@@ -138,7 +140,9 @@ export default function PrivacyPage() {
                   <span className="niro-legal-index">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <h2>{section.title}</h2>
+                  <h2 className="heading-write reveal-on-scroll">
+                    <span className="heading-line">{section.title}</span>
+                  </h2>
                 </header>
                 <div className="niro-legal-clauses">
                   {section.clauses.map((clause) => (

@@ -200,8 +200,8 @@ export default function HowItWorksSection() {
       <div className="niro-livemap-frame">
       <div className="relative z-10 flex flex-col items-center text-center">
         {/* Main Heading: Exact Figma Image 1 - ONE SINGLE LINE */}
-        <h2 className="niro-livemap-title reveal-on-scroll">
-          Niro is a Live Map.
+        <h2 className="niro-livemap-title heading-write heading-write-center reveal-on-scroll">
+          <span className="heading-line">Niro is a Live Map.</span>
         </h2>
 
         {/* Subtitle: Exact Figma Image 1 - EXACT 2 LINES */}

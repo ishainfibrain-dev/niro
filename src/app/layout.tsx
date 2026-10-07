@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import "@/styles/responsive.css";
+import ScrollAnimationProvider from "@/components/ScrollAnimationProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -36,7 +37,7 @@ export default function RootLayout({
       className={`${inter.variable} h-full antialiased dark`}
     >
       <body className="min-h-full flex flex-col bg-black text-white font-sans">
-        {children}
+        <ScrollAnimationProvider>{children}</ScrollAnimationProvider>
       </body>
     </html>
   );

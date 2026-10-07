@@ -20,13 +20,13 @@ export default function FoodTruckSection() {
 
   return (
     <section id="mobile-business" className="niro-food-truck-section">
-      <div className="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-14">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="max-w-[1480px] mx-auto px-6 sm:px-10 lg:px-14">
+        <div className="niro-phone-split grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column: Heading, Paragraphs, Flow Pills, Checklist Box, Button */}
           <div className="flex flex-col items-start text-left reveal-on-scroll reveal-left">
-            <h2 className="text-white font-[800] text-[32px] sm:text-[38px] md:text-[42px] leading-[42px] sm:leading-[48px] md:leading-[54px] tracking-tight">
-              New Location?
-              <span className="block mt-1">Go LIVE on the Map Again.</span>
+            <h2 className="heading-write reveal-on-scroll text-white font-[800] text-[32px] sm:text-[38px] md:text-[42px] leading-[42px] sm:leading-[48px] md:leading-[54px] tracking-tight">
+              <span className="heading-line">New Location?</span>
+              <span className="heading-line mt-1">Go LIVE on the Map Again.</span>
             </h2>
 
             <div className="mt-6 space-y-3 text-[#9CA3AF] text-[15px] sm:text-[16px] leading-[25px]">
@@ -92,13 +92,13 @@ export default function FoodTruckSection() {
           {/* Right Column: Phone Mockup (m4.png) */}
           <div className="flex justify-center items-center relative reveal-on-scroll reveal-right delay-150">
             <div className="absolute w-[500px] h-[500px] bg-[#0743FC]/25 rounded-full blur-[130px] animate-ambient-glow pointer-events-none" />
-            <div className="relative w-full max-w-[320px] sm:max-w-[360px] md:max-w-[380px] lg:max-w-[390px] xl:max-w-[400px] flex justify-center animate-float-delayed">
+            <div className="niro-phone-image-container relative flex justify-center animate-float-delayed">
               <Image
                 src="/images/m4.png"
                 alt="NIRO Mobile Food Truck Location Updates on Mobile"
                 width={1024}
                 height={1536}
-                className="w-full h-auto max-h-[580px] object-contain drop-shadow-[0_24px_60px_rgba(0,0,0,0.85)]"
+                className="object-contain drop-shadow-[0_24px_60px_rgba(0,0,0,0.85)]"
                 priority
               />
             </div>

@@ -53,18 +53,18 @@ export default function GoLiveMapSection() {
 
   return (
     <section id="for-business" className="niro-go-live-section">
-      <div className="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-14">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="max-w-[1480px] mx-auto px-6 sm:px-10 lg:px-14">
+        <div className="niro-phone-split phone-first grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Column: Phone Mockup (m3.png) */}
           <div className="flex justify-center items-center relative order-2 lg:order-1 reveal-on-scroll reveal-left delay-150">
             <div className="absolute w-[500px] h-[500px] bg-[#0743FC]/25 rounded-full blur-[130px] animate-ambient-glow pointer-events-none" />
-            <div className="relative w-full max-w-[320px] sm:max-w-[360px] md:max-w-[380px] lg:max-w-[390px] xl:max-w-[400px] flex justify-center animate-float">
+            <div className="niro-phone-image-container relative flex justify-center animate-float">
               <Image
                 src="/images/m3.png"
                 alt="NIRO Map Listings and Exploration on Mobile"
                 width={1024}
                 height={1536}
-                className="w-full h-auto max-h-[580px] object-contain drop-shadow-[0_24px_60px_rgba(0,0,0,0.85)]"
+                className="object-contain drop-shadow-[0_24px_60px_rgba(0,0,0,0.85)]"
                 priority
               />
             </div>
@@ -72,9 +72,9 @@ export default function GoLiveMapSection() {
 
           {/* Right Column: Heading, Subtitle, List & Button */}
           <div className="flex flex-col items-start text-left order-1 lg:order-2 reveal-on-scroll reveal-right">
-            <h2 className="text-white font-[800] text-[32px] sm:text-[38px] md:text-[42px] leading-[42px] sm:leading-[48px] md:leading-[54px] tracking-tight">
-              Don’t Just Get Listed.
-              <span className="block mt-1">Go LIVE on the Map.</span>
+            <h2 className="heading-write reveal-on-scroll text-white font-[800] text-[32px] sm:text-[38px] md:text-[42px] leading-[42px] sm:leading-[48px] md:leading-[54px] tracking-tight">
+              <span className="heading-line">Don’t Just Get Listed.</span>
+              <span className="heading-line mt-1">Go LIVE on the Map.</span>
             </h2>
 
             <p className="mt-6 text-[#9CA3AF] text-[15px] sm:text-[16px] leading-[26px]">

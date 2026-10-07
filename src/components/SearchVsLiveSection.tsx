@@ -56,11 +56,11 @@ export default function SearchVsLiveSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Left Column: Heading, Description, Comparison Boxes */}
           <div className="flex flex-col items-start text-left reveal-on-scroll reveal-left">
-            <h2 className="text-white font-[800] text-[32px] sm:text-[38px] md:text-[42px] leading-[42px] sm:leading-[48px] md:leading-[54px] tracking-tight">
-              Don’t Just Search for
-              <span className="block mt-1">Businesses.</span>
-              <span className="block mt-1">See What’s Happening</span>
-              <span className="block mt-1">Around You.</span>
+            <h2 className="heading-write reveal-on-scroll text-white font-[800] text-[32px] sm:text-[38px] md:text-[42px] leading-[42px] sm:leading-[48px] md:leading-[54px] tracking-tight">
+              <span className="heading-line">Don’t Just Search for</span>
+              <span className="heading-line mt-1">Businesses.</span>
+              <span className="heading-line mt-1">See What’s Happening</span>
+              <span className="heading-line mt-1">Around You.</span>
             </h2>
 
             <p className="mt-6 text-[#9CA3AF] text-[15px] sm:text-[16px] leading-[26px] max-w-xl">

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 interface FeatureSlide {
@@ -43,10 +43,21 @@ const slides: FeatureSlide[] = [
   },
 ];
 
+const SLIDE_INTERVAL_MS = 4500;
+
 export default function MapFeaturesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
 
   const activeSlide = slides[activeIndex];
+
+  useEffect(() => {
+    if (paused) return;
+    const timer = window.setTimeout(() => {
+      setActiveIndex((current) => (current + 1) % slides.length);
+    }, SLIDE_INTERVAL_MS);
+    return () => window.clearTimeout(timer);
+  }, [activeIndex, paused]);
 
   return (
     <section id="why-niro" className="niro-map-section">
@@ -67,11 +78,11 @@ export default function MapFeaturesSection() {
         {/* Figma Container: Flow Vertical, Width 896px, Padding Top 5.5px, Gap 16px */}
         <div className="niro-map-container">
           {/* Main Section Heading: Inter 800 Extra Bold, 42px size, 54px line-height */}
-          <h2 className="niro-map-heading reveal-on-scroll">
-            <span className="niro-map-heading-line">
+          <h2 className="niro-map-heading heading-write heading-write-center reveal-on-scroll">
+            <span className="niro-map-heading-line heading-line">
               A Map That Changes With What’s
             </span>
-            <span className="niro-map-heading-span">
+            <span className="niro-map-heading-span heading-line">
               Happening Around You.
             </span>
           </h2>
@@ -88,7 +99,13 @@ export default function MapFeaturesSection() {
         </div>
 
         {/* Feature Carousel Section with Megaphone & Text */}
-        <div className="niro-feature-wrapper reveal-on-scroll reveal-scale delay-200">
+        <div
+          className="niro-feature-wrapper reveal-on-scroll reveal-scale delay-200"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onFocus={() => setPaused(true)}
+          onBlur={() => setPaused(false)}
+        >
           <div className="niro-feature-item">
             {/* Cyan Megaphone Icon */}
             <div className="niro-feature-icon-box animate-pulse-glow">
@@ -103,7 +120,7 @@ export default function MapFeaturesSection() {
             </div>
 
             {/* Feature Content */}
-            <div className="niro-feature-text">
+            <div className="niro-feature-text" key={activeIndex}>
               <span className="niro-feature-tag">
                 {activeSlide.tag}
               </span>

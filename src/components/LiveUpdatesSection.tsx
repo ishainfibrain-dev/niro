@@ -94,7 +94,7 @@ export default function LiveUpdatesSection() {
               alt="NIRO Mobile App Live Local Discovery"
               width={1148}
               height={1371}
-              className="w-full h-auto max-h-[580px] object-contain drop-shadow-[0_24px_60px_rgba(0,0,0,0.85)]"
+              className="object-contain drop-shadow-[0_24px_60px_rgba(0,0,0,0.85)]"
               priority
             />
           </div>
@@ -104,10 +104,10 @@ export default function LiveUpdatesSection() {
         <div className="niro-updates-right-container reveal-on-scroll reveal-right">
           {/* Frame 7: Heading Block */}
           <div className="niro-updates-frame-7">
-            <h2 className="niro-updates-heading">
-              What’s Happening Around
-              <span className="block">You Is Always Changing.</span>
-              <span className="block">Your Map Should Change Too.</span>
+            <h2 className="niro-updates-heading heading-write reveal-on-scroll">
+              <span className="heading-line">What’s Happening Around</span>
+              <span className="heading-line">You Is Always Changing.</span>
+              <span className="heading-line">Your Map Should Change Too.</span>
             </h2>
           </div>
 
