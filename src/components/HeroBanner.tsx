@@ -2,8 +2,10 @@
 
 import React from "react";
 import Image from "next/image";
+import { useI18n } from "@/i18n/language";
 
 export default function HeroBanner() {
+  const { t } = useI18n();
   return (
     <section id="hero" className="niro-hero-section">
       {/* Background Image Container */}
@@ -44,15 +46,15 @@ export default function HeroBanner() {
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#4DD7CB]"></span>
           </span>
           <span className="text-[12.5px] font-semibold text-[#4DD7CB] tracking-wider uppercase">
-            Live Hyperlocal Map
+            {t.hero.badge}
           </span>
         </div>
 
         <h1 className="niro-hero-title heading-write heading-write-center reveal-on-scroll delay-100">
-          <span className="heading-line">See What’s Happening</span>
+          <span className="heading-line">{t.hero.line1}</span>
           <span className="heading-line mt-1 sm:mt-2">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-slate-200">
-              Around You Right Now.
+              {t.hero.line2}
             </span>
           </span>
         </h1>

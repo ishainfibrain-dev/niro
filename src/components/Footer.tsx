@@ -3,8 +3,10 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useI18n } from "@/i18n/language";
 
 export default function Footer() {
+  const { t } = useI18n();
   return (
     <footer className="niro-footer">
       <div className="niro-footer-inner">
@@ -78,7 +80,7 @@ export default function Footer() {
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                 <circle cx="12" cy="10" r="3" />
               </svg>
-              <span>18th Street NewYork, USA</span>
+              <span>{t.footer.address}</span>
             </div>
 
             {/* Website */}
@@ -109,20 +111,20 @@ export default function Footer() {
         {/* Bottom Row: Exact Figma Typography Inter 400 16px/24px White - NO BORDER DIVIDER, ALWAYS VISIBLE */}
         <div className="niro-footer-bottom-row text-white font-normal tracking-[0px]">
           <p className="m-0 select-none text-white text-[16px] leading-[24px] font-normal">
-            © Copyright 2026 Niro. All Rights Reserved.
+            {t.footer.copyright}
           </p>
           <div className="flex items-center gap-8 text-white text-[16px] leading-[24px] font-normal">
             <Link
               href="/terms"
               className="text-white hover:text-[#4DD7CB] transition-colors"
             >
-              Terms &amp; Conditions
+              {t.footer.terms}
             </Link>
             <Link
               href="/privacy"
               className="text-white hover:text-[#4DD7CB] transition-colors"
             >
-              Privacy Policy
+              {t.footer.privacy}
             </Link>
           </div>
         </div>

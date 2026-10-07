@@ -2,11 +2,15 @@
 
 import React from "react";
 import Image from "next/image";
+import { useI18n } from "@/i18n/language";
+import { useInquiry } from "@/components/InquiryProvider";
 
 export default function GoLiveMapSection() {
+  const { t } = useI18n();
+  const { openInquiry } = useInquiry();
   const listItems = [
     {
-      title: "Update Your Business",
+      title: t.business.items[0],
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB] shrink-0">
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="#4DD7CB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -15,7 +19,7 @@ export default function GoLiveMapSection() {
       ),
     },
     {
-      title: "Change a Promotion",
+      title: t.business.items[1],
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB] shrink-0">
           <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" stroke="#4DD7CB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -24,7 +28,7 @@ export default function GoLiveMapSection() {
       ),
     },
     {
-      title: "Highlight an Offer",
+      title: t.business.items[2],
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB] shrink-0">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#4DD7CB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -32,7 +36,7 @@ export default function GoLiveMapSection() {
       ),
     },
     {
-      title: "Move Locations",
+      title: t.business.items[3],
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB] shrink-0">
           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="#4DD7CB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -41,7 +45,7 @@ export default function GoLiveMapSection() {
       ),
     },
     {
-      title: "Publish the Change",
+      title: t.business.items[4],
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB] shrink-0">
           <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="#4DD7CB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -73,12 +77,12 @@ export default function GoLiveMapSection() {
           {/* Right Column: Heading, Subtitle, List & Button */}
           <div className="flex flex-col items-start text-left order-1 lg:order-2 reveal-on-scroll reveal-right">
             <h2 className="heading-write reveal-on-scroll text-white font-[800] text-[32px] sm:text-[38px] md:text-[42px] leading-[42px] sm:leading-[48px] md:leading-[54px] tracking-tight">
-              <span className="heading-line">Don’t Just Get Listed.</span>
-              <span className="heading-line mt-1">Go LIVE on the Map.</span>
+              <span className="heading-line">{t.business.line1}</span>
+              <span className="heading-line mt-1">{t.business.line2}</span>
             </h2>
 
             <p className="mt-6 text-[#9CA3AF] text-[15px] sm:text-[16px] leading-[26px]">
-              Traditional listings tell customers that your business exists. Niro lets businesses actively control what nearby consumers see.
+              {t.business.intro}
             </p>
 
             {/* 5 Features List */}
@@ -97,14 +101,15 @@ export default function GoLiveMapSection() {
             </div>
 
             <p className="mt-8 text-[#9CA3AF] text-[15px] leading-[24px]">
-              Your Niro presence can immediately reflect what is happening with your business.
+              {t.business.closing}
             </p>
 
             <button
               type="button"
+              onClick={openInquiry}
               className="mt-6 px-9 py-3.5 rounded-full bg-gradient-to-r from-[#0743FC] to-[#2563EB] text-white font-semibold text-[15.5px] shadow-[0_4px_24px_rgba(7,67,252,0.4)] hover:shadow-[0_6px_32px_rgba(7,67,252,0.6)] hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
             >
-              Promote Your Business on Niro
+              {t.business.button}
             </button>
           </div>
         </div>

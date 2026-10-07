@@ -1,11 +1,13 @@
 "use client";
 
 import React from "react";
+import { useI18n } from "@/i18n/language";
 
 export default function SearchVsLiveSection() {
+  const { t } = useI18n();
   const listItems = [
     {
-      title: "Explore Nearby Businesses",
+      title: t.people.items[0],
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB] shrink-0">
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="#4DD7CB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -14,7 +16,7 @@ export default function SearchVsLiveSection() {
       ),
     },
     {
-      title: "See Current Promotions",
+      title: t.people.items[1],
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB] shrink-0">
           <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" stroke="#4DD7CB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -23,7 +25,7 @@ export default function SearchVsLiveSection() {
       ),
     },
     {
-      title: "Discover Products and Offers",
+      title: t.people.items[2],
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB] shrink-0">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#4DD7CB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -31,7 +33,7 @@ export default function SearchVsLiveSection() {
       ),
     },
     {
-      title: "Find Places You Didn't Know Were There",
+      title: t.people.items[3],
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB] shrink-0">
           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="#4DD7CB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -40,7 +42,7 @@ export default function SearchVsLiveSection() {
       ),
     },
     {
-      title: "See When Businesses Update What They are Offering",
+      title: t.people.items[4],
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB] shrink-0">
           <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="#4DD7CB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -57,23 +59,24 @@ export default function SearchVsLiveSection() {
           {/* Left Column: Heading, Description, Comparison Boxes */}
           <div className="flex flex-col items-start text-left reveal-on-scroll reveal-left">
             <h2 className="heading-write reveal-on-scroll text-white font-[800] text-[32px] sm:text-[38px] md:text-[42px] leading-[42px] sm:leading-[48px] md:leading-[54px] tracking-tight">
-              <span className="heading-line">Don’t Just Search for</span>
-              <span className="heading-line mt-1">Businesses.</span>
-              <span className="heading-line mt-1">See What’s Happening</span>
-              <span className="heading-line mt-1">Around You.</span>
+              {t.people.lines.map((line, index) => (
+                <span key={line} className={`heading-line${index > 0 ? " mt-1" : ""}`}>
+                  {line}
+                </span>
+              ))}
             </h2>
 
             <p className="mt-6 text-[#9CA3AF] text-[15px] sm:text-[16px] leading-[26px] max-w-xl">
-              Niro gives people ready to shop a visual way to explore nearby businesses, products, promotions and current activity through a Live Map.
+              {t.people.intro}
             </p>
 
             {/* Comparison Flow with Arrow */}
             <div className="mt-12 flex flex-col sm:flex-row items-center gap-4 w-full max-w-xl reveal-on-scroll delay-150">
               {/* Box 1 */}
               <div className="w-full sm:flex-1 p-5 rounded-xl bg-[rgba(6,9,19,0.7)] border border-[#15203D] hover:border-slate-600 transition-colors">
-                <span className="text-[#9CA3AF] text-[13px] block">Instead of only asking:</span>
+                <span className="text-[#9CA3AF] text-[13px] block">{t.people.instead}</span>
                 <span className="text-white text-[16px] font-semibold mt-1 block">
-                  “What’s near me?”
+                  {t.people.insteadQuote}
                 </span>
               </div>
 
@@ -86,9 +89,9 @@ export default function SearchVsLiveSection() {
 
               {/* Box 2 with Cyan Glow/Border */}
               <div className="w-full sm:flex-1 p-5 rounded-xl bg-[rgba(6,9,19,0.85)] border border-[#4DD7CB]/50 shadow-[0_0_24px_rgba(77,215,203,0.18)] hover:shadow-[0_0_32px_rgba(77,215,203,0.3)] transition-all">
-                <span className="text-[#9CA3AF] text-[13px] block">Niro helps answer:</span>
+                <span className="text-[#9CA3AF] text-[13px] block">{t.people.niro}</span>
                 <span className="text-[#4DD7CB] text-[16px] font-bold mt-1 block leading-snug">
-                  “What’s happening near me right now?”
+                  {t.people.niroQuote}
                 </span>
               </div>
             </div>
@@ -111,14 +114,14 @@ export default function SearchVsLiveSection() {
             </div>
 
             <p className="mt-8 text-[#9CA3AF] text-[15px] leading-[24px]">
-              Niro turns the city around you into something you can explore and act on.
+              {t.people.closing}
             </p>
 
             <button
               type="button"
               className="mt-6 px-9 py-3.5 rounded-full bg-gradient-to-r from-[#0743FC] to-[#2563EB] text-white font-semibold text-[15.5px] shadow-[0_4px_24px_rgba(7,67,252,0.4)] hover:shadow-[0_6px_32px_rgba(7,67,252,0.6)] hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
             >
-              Explore Niro
+              {t.people.button}
             </button>
           </div>
         </div>

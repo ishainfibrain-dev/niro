@@ -2,11 +2,13 @@
 
 import React from "react";
 import Image from "next/image";
+import { useI18n } from "@/i18n/language";
 
 export default function LiveUpdatesSection() {
+  const { t } = useI18n();
   const featurePills = [
     {
-      title: "Current Promotions",
+      title: t.updates.pills[0],
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB]">
           <path
@@ -21,7 +23,7 @@ export default function LiveUpdatesSection() {
       ),
     },
     {
-      title: "Current Offers",
+      title: t.updates.pills[1],
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB]">
           <line x1="19" y1="5" x2="5" y2="19" stroke="#4DD7CB" strokeWidth="2" strokeLinecap="round" />
@@ -31,7 +33,7 @@ export default function LiveUpdatesSection() {
       ),
     },
     {
-      title: "Business Information",
+      title: t.updates.pills[2],
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB]">
           <circle cx="12" cy="12" r="10" stroke="#4DD7CB" strokeWidth="2" />
@@ -41,7 +43,7 @@ export default function LiveUpdatesSection() {
       ),
     },
     {
-      title: "Changing Locations",
+      title: t.updates.pills[3],
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB]">
           <path
@@ -56,7 +58,7 @@ export default function LiveUpdatesSection() {
       ),
     },
     {
-      title: "Time-Sensitive Activity",
+      title: t.updates.pills[4],
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB]">
           <circle cx="12" cy="12" r="10" stroke="#4DD7CB" strokeWidth="2" />
@@ -65,7 +67,7 @@ export default function LiveUpdatesSection() {
       ),
     },
     {
-      title: "What's Available Now",
+      title: t.updates.pills[5],
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB]">
           <path
@@ -105,9 +107,11 @@ export default function LiveUpdatesSection() {
           {/* Frame 7: Heading Block */}
           <div className="niro-updates-frame-7">
             <h2 className="niro-updates-heading heading-write reveal-on-scroll">
-              <span className="heading-line">What’s Happening Around</span>
-              <span className="heading-line">You Is Always Changing.</span>
-              <span className="heading-line">Your Map Should Change Too.</span>
+              {t.updates.lines.map((line) => (
+                <span key={line} className="heading-line">
+                  {line}
+                </span>
+              ))}
             </h2>
           </div>
 
@@ -115,10 +119,10 @@ export default function LiveUpdatesSection() {
           <div className="niro-updates-component-6">
             <div className="niro-updates-subheading-block">
               <h3 className="niro-updates-subheading-title">
-                Businesses Can Make Updates
+                {t.updates.subheading}
               </h3>
               <p className="niro-updates-subheading-desc">
-                When a merchant makes an update, that update can become visible immediately.
+                {t.updates.subtext}
               </p>
             </div>
 
@@ -138,17 +142,17 @@ export default function LiveUpdatesSection() {
             {/* Callout Container: Linear gradient background & 1px solid #24345E */}
             <div className="niro-updates-callout-card reveal-on-scroll delay-200">
               <h4 className="niro-updates-callout-title">
-                CHANGE IT. PUBLISH IT.{" "}
-                <span className="text-[#4DD7CB]">IT’S LIVE.</span>
+                {t.updates.calloutLead}{" "}
+                <span className="text-[#4DD7CB]">{t.updates.calloutLive}</span>
               </h4>
               <p className="niro-updates-callout-desc">
-                No waiting for another ad campaign. No depending on someone seeing yesterday’s post.
+                {t.updates.calloutBody}
               </p>
             </div>
 
             {/* Section Closing Hook: 16px / 28px #9CA3AF */}
             <p className="niro-updates-footer-text">
-              Niro lets businesses communicate with people who are physically positioned to act.
+              {t.updates.footer}
             </p>
           </div>
         </div>

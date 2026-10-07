@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useI18n } from "@/i18n/language";
 
 interface StepItem {
   title: React.ReactNode;
@@ -8,6 +9,7 @@ interface StepItem {
 }
 
 export default function HowItWorksSection() {
+  const { t } = useI18n();
   const steps: StepItem[] = [
     {
       title: "Business Changes",
@@ -201,13 +203,13 @@ export default function HowItWorksSection() {
       <div className="relative z-10 flex flex-col items-center text-center">
         {/* Main Heading: Exact Figma Image 1 - ONE SINGLE LINE */}
         <h2 className="niro-livemap-title heading-write heading-write-center reveal-on-scroll">
-          <span className="heading-line">Niro is a Live Map.</span>
+          <span className="heading-line">{t.how.title}</span>
         </h2>
 
         {/* Subtitle: Exact Figma Image 1 - EXACT 2 LINES */}
         <div className="niro-livemap-subtitle reveal-on-scroll delay-100">
-          <p>Other maps show you where. Niro shows you what’s happening now.</p>
-          <p>Join consumers and merchants experiencing the city in real time.</p>
+          <p>{t.how.subtitle1}</p>
+          <p>{t.how.subtitle2}</p>
         </div>
 
         {/* 4 Process Cards Flow with Big Icons & Connecting Arrows */}
@@ -223,7 +225,12 @@ export default function HowItWorksSection() {
                     {step.icon}
                   </div>
                   <h3 className="niro-flow-card-title group-hover:text-[#4DD7CB]">
-                    {step.title}
+                    {t.how.cards[idx].split("\n").map((line, lineIdx) => (
+                      <React.Fragment key={line}>
+                        {lineIdx > 0 && <br />}
+                        {line}
+                      </React.Fragment>
+                    ))}
                   </h3>
                 </div>
 
@@ -262,8 +269,8 @@ export default function HowItWorksSection() {
         {/* Bottom Tagline: Exact typography matching Image 1 */}
         <div className="niro-flow-tagline reveal-on-scroll delay-500">
           <p>
-            CHANGE IT. PUBLISH IT.{" "}
-            <span className="niro-flow-tagline-highlight">IT’S LIVE.</span>
+            {t.how.taglineLead}{" "}
+            <span className="niro-flow-tagline-highlight">{t.how.taglineLive}</span>
           </p>
         </div>
       </div>

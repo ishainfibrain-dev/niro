@@ -3,29 +3,17 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useI18n } from "@/i18n/language";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
-  const [selectedLang, setSelectedLang] = useState("EN");
+  const { lang, setLang, t } = useI18n();
   const onHome = pathname === "/";
-
-  const navLinks = [
-    { name: "Why Niro", href: "#why-niro" },
-    { name: "Live Map", href: "#live-map" },
-    { name: "Promotions", href: "#promotions" },
-    { name: "For People", href: "#for-people" },
-    { name: "For Business", href: "#for-business" },
-    { name: "Mobile Business", href: "#mobile-business" },
-  ];
-
-  const languages = [
-    { code: "EN", label: "English", flag: "🇺🇸" },
-    { code: "ES", label: "Español", flag: "🇪🇸" },
-    { code: "FR", label: "Français", flag: "🇫🇷" },
-    { code: "DE", label: "Deutsch", flag: "🇩🇪" },
-  ];
+  const navLinks = t.nav;
+  const languages = t.languages;
+  const selectedLang = languages.find((item) => item.code === lang)?.short ?? "EN";
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -99,32 +87,7 @@ export default function Navbar() {
             >
               {/* US Flag SVG Icon */}
               <span className="w-5 h-3.5 overflow-hidden rounded-[2px] inline-flex items-center justify-center shadow-xs">
-                <svg
-                  viewBox="0 0 640 480"
-                  className="w-full h-full object-cover"
-                >
-                  <g fillRule="evenodd">
-                    <path fill="#bd3d44" d="M0 0h640v480H0z" />
-                    <path
-                      stroke="#fff"
-                      strokeWidth="37"
-                      d="M0 55.4h640M0 129.2h640M0 203.1h640M0 277h640M0 350.8h640M0 424.6h640"
-                    />
-                    <path fill="#192f5d" d="M0 0h280v258.5H0z" />
-                    <g fill="#fff">
-                      {[...Array(5)].map((_, r) =>
-                        [...Array(6)].map((_, c) => (
-                          <circle
-                            key={`${r}-${c}`}
-                            cx={24 + c * 44}
-                            cy={25 + r * 50}
-                            r="5"
-                          />
-                        ))
-                      )}
-                    </g>
-                  </g>
-                </svg>
+                <LangFlag code={lang} />
               </span>
               <span className="font-medium text-[16px] leading-[24px] tracking-[0px]">
                 {selectedLang}
@@ -147,26 +110,28 @@ export default function Navbar() {
 
             {/* Dropdown Menu */}
             {langDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-36 bg-[#111111] border border-white/10 rounded-lg shadow-2xl py-1 z-50 backdrop-blur-md">
-                {languages.map((lang) => (
+              <div className="absolute right-0 mt-2 w-40 bg-[#111111] border border-white/10 rounded-lg shadow-2xl py-1 z-50 backdrop-blur-md">
+                {languages.map((item) => (
                   <button
-                    key={lang.code}
+                    key={item.code}
                     onClick={() => {
-                      setSelectedLang(lang.code);
+                      setLang(item.code);
                       setLangDropdownOpen(false);
                     }}
                     className={`w-full text-left px-3.5 py-2 text-xs flex items-center justify-between hover:bg-white/10 transition-colors ${
-                      selectedLang === lang.code
+                      lang === item.code
                         ? "text-white font-semibold"
                         : "text-neutral-300"
                     }`}
                   >
                     <span className="flex items-center gap-2">
-                      <span>{lang.flag}</span>
-                      <span>{lang.label}</span>
+                      <span className="w-5 h-3.5 overflow-hidden rounded-[2px] inline-flex">
+                        <LangFlag code={item.code} />
+                      </span>
+                      <span>{item.label}</span>
                     </span>
                     <span className="text-[11px] text-neutral-400">
-                      {lang.code}
+                      {item.short}
                     </span>
                   </button>
                 ))}
@@ -178,7 +143,9 @@ export default function Navbar() {
         {/* Mobile Hamburger Button */}
         <div className="lg:hidden flex items-center gap-3">
           <div className="flex items-center gap-1.5 text-white text-sm mr-2 font-medium">
-            <span>🇺🇸</span>
+            <span className="w-5 h-3.5 overflow-hidden rounded-[2px] inline-flex">
+              <LangFlag code={lang} />
+            </span>
             <span>{selectedLang}</span>
           </div>
           <button
@@ -225,8 +192,62 @@ export default function Navbar() {
               {link.name}
             </a>
           ))}
+          <div className="flex gap-2 pt-2 border-t border-white/10">
+            {languages.map((item) => (
+              <button
+                key={item.code}
+                type="button"
+                onClick={() => {
+                  setLang(item.code);
+                  setMobileMenuOpen(false);
+                }}
+                className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm ${
+                  lang === item.code
+                    ? "bg-white/10 text-white"
+                    : "text-neutral-300"
+                }`}
+              >
+                <span className="w-5 h-3.5 overflow-hidden rounded-[2px] inline-flex">
+                  <LangFlag code={item.code} />
+                </span>
+                {item.label}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </header>
+  );
+}
+
+function LangFlag({ code }: { code: "en" | "es" }) {
+  if (code === "es") {
+    return (
+      <svg viewBox="0 0 640 480" className="w-full h-full object-cover">
+        <path fill="#c60b1e" d="M0 0h640v480H0z" />
+        <path fill="#ffc400" d="M0 120h640v240H0z" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 640 480" className="w-full h-full object-cover">
+      <g fillRule="evenodd">
+        <path fill="#bd3d44" d="M0 0h640v480H0z" />
+        <path
+          stroke="#fff"
+          strokeWidth="37"
+          d="M0 55.4h640M0 129.2h640M0 203.1h640M0 277h640M0 350.8h640M0 424.6h640"
+        />
+        <path fill="#192f5d" d="M0 0h280v258.5H0z" />
+        <g fill="#fff">
+          {[...Array(5)].map((_, r) =>
+            [...Array(6)].map((_, c) => (
+              <circle key={`${r}-${c}`} cx={24 + c * 44} cy={25 + r * 50} r="5" />
+            ))
+          )}
+        </g>
+      </g>
+    </svg>
   );
 }
