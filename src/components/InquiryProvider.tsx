@@ -34,6 +34,18 @@ const emptyForm: FormState = {
 };
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_MESSAGE_WORDS = 250;
+
+function getWordCount(value: string) {
+  return value.trim() ? value.trim().split(/\s+/).length : 0;
+}
+
+function limitToWords(value: string, limit: number) {
+  return value.split(/(\s+)/).reduce(
+    (result, part) => (getWordCount(result + part) <= limit ? result + part : result),
+    "",
+  );
+}
 
 export function InquiryProvider({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -207,7 +219,7 @@ function InquiryDialog({ onClose }: { onClose: () => void }) {
               </span>
               <textarea
                 value={form.message}
-                onChange={(event) => setField("message", event.target.value)}
+                onChange={(event) => setField("message", limitToWords(event.target.value, MAX_MESSAGE_WORDS))}
                 rows={4}
                 className="w-full rounded-xl border border-[#15203D] bg-black/40 px-3.5 py-3 text-[15px] text-white outline-none focus:border-[#4DD7CB]"
               />

@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 import { buildInquiryEmail } from "@/emails/inquiry-email";
 
-const INQUIRY_EMAIL = "isha.infibrain@gmail.com";
+const INQUIRY_EMAIL = "infibrain.dev@gmail.com";
 
 type InquiryBody = {
   businessName?: string;
@@ -15,6 +15,11 @@ type InquiryBody = {
 };
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_MESSAGE_WORDS = 250;
+
+function getWordCount(value: string) {
+  return value.trim() ? value.trim().split(/\s+/).length : 0;
+}
 
 function clean(value: unknown, max: number) {
   return String(value ?? "").trim().slice(0, max);
@@ -38,12 +43,13 @@ export async function POST(request: Request) {
   const phone = clean(body.phone, 10);
   const category = clean(body.category, 120);
   const city = clean(body.city, 120);
-  const message = clean(body.message, 1000);
+  const message = clean(body.message, 5000);
   if (
     businessName.length < 2 ||
     contactName.length < 2 ||
     !emailPattern.test(email) ||
-    !/^\d{10}$/.test(phone)
+    !/^\d{10}$/.test(phone) ||
+    getWordCount(message) > MAX_MESSAGE_WORDS
   ) {
     return Response.json({ ok: false, error: "invalid" }, { status: 400 });
   }
