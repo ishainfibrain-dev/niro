@@ -9,58 +9,19 @@ export default function GoLiveMapSection() {
   const { t } = useI18n();
   const { openInquiry } = useInquiry();
   const listItems = [
-    {
-      title: t.business.items[0],
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB] shrink-0">
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="#4DD7CB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          <polyline points="9 22 9 12 15 12 15 22" stroke="#4DD7CB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      ),
-    },
-    {
-      title: t.business.items[1],
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB] shrink-0">
-          <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" stroke="#4DD7CB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          <circle cx="7" cy="7" r="1.5" fill="#4DD7CB" />
-        </svg>
-      ),
-    },
-    {
-      title: t.business.items[2],
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB] shrink-0">
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#4DD7CB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      ),
-    },
-    {
-      title: t.business.items[3],
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB] shrink-0">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="#4DD7CB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          <circle cx="12" cy="10" r="3" stroke="#4DD7CB" strokeWidth="2" />
-        </svg>
-      ),
-    },
-    {
-      title: t.business.items[4],
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-[#4DD7CB] shrink-0">
-          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="#4DD7CB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="#4DD7CB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      ),
-    },
+    { title: t.business.items[0], icon: "/images/icon-shop.png", alt: "Business storefront" },
+    { title: t.business.items[1], icon: "/images/icon-tag.png", alt: "Promotion tag" },
+    { title: t.business.items[2], icon: "/images/icon-offer-badge.png", alt: "Offer badge" },
+    { title: t.business.items[3], icon: "/images/icon-pin.png", alt: "Location pin" },
+    { title: t.business.items[4], icon: "/images/icon-bell.png", alt: "Notification bell" },
   ];
 
   return (
     <section id="for-business" className="niro-go-live-section">
       <div className="max-w-[1480px] mx-auto px-6 sm:px-10 lg:px-14">
-        <div className="niro-phone-split phone-first grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="niro-phone-split phone-first grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 items-start">
           {/* Left Column: Phone Mockup (m3.png) */}
-          <div className="flex justify-center items-center relative order-2 lg:order-1 reveal-on-scroll reveal-left delay-150">
+          <div className="flex justify-center items-center relative order-1 lg:order-1 reveal-on-scroll reveal-left delay-150">
             <div className="absolute w-[500px] h-[500px] bg-[#0743FC]/25 rounded-full blur-[130px] animate-ambient-glow pointer-events-none" />
             <div className="niro-phone-image-container relative flex justify-center animate-float">
               <Image
@@ -75,14 +36,16 @@ export default function GoLiveMapSection() {
           </div>
 
           {/* Right Column: Heading, Subtitle, List & Button */}
-          <div className="flex flex-col items-start text-left order-1 lg:order-2 reveal-on-scroll reveal-right">
+          <div className="flex flex-col items-start text-left order-2 lg:order-2 lg:pt-11 reveal-on-scroll reveal-right">
             <h2 className="heading-write reveal-on-scroll text-white font-[800] text-[32px] sm:text-[38px] md:text-[42px] leading-[42px] sm:leading-[48px] md:leading-[54px] tracking-tight">
               <span className="heading-line">{t.business.line1}</span>
               <span className="heading-line mt-1">{t.business.line2}</span>
             </h2>
 
-            <p className="mt-6 text-[#9CA3AF] text-[15px] sm:text-[16px] leading-[26px]">
-              {t.business.intro}
+            <p className="mt-6 text-[#9CA3AF] text-[15px] leading-[23px] sm:text-[16px] sm:leading-[24px]">
+              {t.business.introLine1}
+              <br />
+              {t.business.introLine2}
             </p>
 
             {/* 5 Features List */}
@@ -92,7 +55,7 @@ export default function GoLiveMapSection() {
                   key={index}
                   className="py-4.5 first:pt-0 flex items-center gap-4 group cursor-default hover:pl-2 transition-all duration-300"
                 >
-                  <div className="group-hover:scale-115 transition-transform duration-300">{item.icon}</div>
+                  <div className="group-hover:scale-115 transition-transform duration-300"><Image src={item.icon} alt={item.alt} width={36} height={36} className="object-contain" style={{ width: 36, height: 36 }} /></div>
                   <span className="text-white text-[16px] sm:text-[17px] font-medium tracking-tight group-hover:text-[#4DD7CB] transition-colors">
                     {item.title}
                   </span>
@@ -107,7 +70,13 @@ export default function GoLiveMapSection() {
             <button
               type="button"
               onClick={openInquiry}
-              className="mt-6 px-9 py-3.5 rounded-full bg-gradient-to-r from-[#0743FC] to-[#2563EB] text-white font-semibold text-[15.5px] shadow-[0_4px_24px_rgba(7,67,252,0.4)] hover:shadow-[0_6px_32px_rgba(7,67,252,0.6)] hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
+              className="mt-6 inline-flex shrink-0 items-center justify-center rounded-full px-5 text-center text-[15.5px] font-semibold text-white shadow-[0_4px_10px_rgba(7,67,252,0.1)] hover:shadow-[0_6px_16px_rgba(7,67,252,0.2)] hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
+              style={{
+                width: "389px",
+                height: "64px",
+                backgroundImage:
+                  "linear-gradient(90deg, #0B43FF 0%, #2CAFE4 100%)",
+              }}
             >
               {t.business.button}
             </button>

@@ -14,7 +14,7 @@ export default function FoodTruckSection() {
 
   return (
     <section id="mobile-business" className="niro-food-truck-section">
-      <div className="max-w-[1480px] mx-auto px-6 sm:px-10 lg:px-14">
+      <div className="max-w-[1480px] mx-auto px-6 sm:px-[62px] lg:px-14">
         <div className="niro-phone-split grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column: Heading, Paragraphs, Flow Pills, Checklist Box, Button */}
           <div className="flex flex-col items-start text-left reveal-on-scroll reveal-left">
@@ -23,9 +23,14 @@ export default function FoodTruckSection() {
               <span className="heading-line mt-1">{t.truck.line2}</span>
             </h2>
 
-            <div className="mt-6 space-y-3 text-[#9CA3AF] text-[15px] sm:text-[16px] leading-[25px]">
+            <div className="mt-6 max-w-[640px] space-y-4 text-[15px] leading-[24px] text-[#9CA3AF]">
               <p>
-                {t.truck.p1}
+                {t.truck.p1.split("\n").map((line, index, lines) => (
+                  <React.Fragment key={`${line}-${index}`}>
+                    {line}
+                    {index < lines.length - 1 && <br />}
+                  </React.Fragment>
+                ))}
               </p>
               <p>
                 {t.truck.p2}
@@ -33,26 +38,57 @@ export default function FoodTruckSection() {
             </div>
 
             {/* Flow Steps Pills with Arrows */}
-            <div className="mt-8 flex flex-wrap items-center gap-2 sm:gap-3 reveal-on-scroll delay-100">
+            <div className="mt-8 flex flex-wrap items-center gap-2 pl-[30px] sm:gap-3 reveal-on-scroll delay-100">
               {steps.map((step, idx) => (
                 <React.Fragment key={`${step}-${idx}`}>
-                  <div className="px-4 py-2 rounded-lg bg-[rgba(6,9,19,0.7)] border border-[#15203D] hover:border-[#4DD7CB] hover:-translate-y-0.5 text-[#E2E8F0] font-medium text-[14px] transition-all duration-200">
+                                    <div
+                    className="inline-flex items-center justify-center rounded-lg border px-4 py-2 text-[15px] font-semibold leading-none transition-all duration-200 hover:-translate-y-0.5"
+                    style={{
+                      minWidth: ["77px", "91px", "72px", "160px"][idx],
+                      minHeight: "42px",
+                      color: idx === 2 ? "#11D5A5" : idx === 3 ? "#50DDD5" : "#FFFFFF",
+                      borderColor: idx === 2 ? "#00B78A" : idx === 3 ? "#46D8D1" : "#29456E",
+                      background:
+                        idx === 2
+                          ? "linear-gradient(135deg, #003B2F 0%, #006A50 100%)"
+                          : idx === 3
+                            ? "linear-gradient(135deg, #07313B 0%, #0A5662 100%)"
+                            : "linear-gradient(180deg, #0B1020 0%, #050812 100%)",
+                      boxShadow:
+                        idx === 2
+                          ? "0 0 14px rgba(0, 183, 138, 0.28), inset 0 1px 0 rgba(17, 213, 165, 0.18)"
+                          : idx === 3
+                            ? "0 0 14px rgba(70, 216, 209, 0.22), inset 0 1px 0 rgba(80, 221, 213, 0.16)"
+                            : "inset 0 1px 0 rgba(255, 255, 255, 0.04)",
+                    }}
+                  >
                     {step}
                   </div>
                   {idx < steps.length - 1 && (
-                    <span className="text-[#4DD7CB] text-[16px] animate-pulse">→</span>
+                    <span className="text-[#4DD7CB] text-[18px] leading-none">→</span>
                   )}
                 </React.Fragment>
               ))}
             </div>
 
             {/* Checklist Box */}
-            <div className="mt-8 p-6 sm:p-7 rounded-2xl bg-[rgba(6,9,19,0.7)] border border-[#15203D] hover:border-[#4DD7CB]/50 w-full max-w-xl transition-all duration-300 shadow-[0_4px_24px_rgba(0,0,0,0.3)] reveal-on-scroll delay-200">
-              <h3 className="text-[#4DD7CB] font-bold text-[16px] mb-4">
+                        <div
+              className="mt-8 w-full rounded-2xl transition-all duration-300 hover:border-[#4DD7CB]/50 reveal-on-scroll delay-200"
+              style={{
+                width: "700px",
+                maxWidth: "100%",
+                minHeight: "190px",
+                padding: "20px",
+                background: "#080C19",
+                border: "1px solid #162D52",
+                boxShadow: "0 4px 24px rgba(0, 0, 0, 0.28)",
+              }}
+            >
+              <h3 className="mb-4 text-[18px] font-bold text-[#4DD7CB]">
                 {t.truck.boxTitle}
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-white text-[14.5px]">
-                <div className="space-y-2.5">
+              <div className="grid grid-cols-1 gap-3 text-[18px] leading-[24px] text-white sm:grid-cols-2 sm:gap-x-14">
+                <div className="space-y-1">
                   {checklistLeft.map((item) => (
                     <div key={item} className="flex items-center gap-2.5 group">
                       <span className="text-[#4DD7CB] font-bold group-hover:scale-125 transition-transform">✓</span>
@@ -60,7 +96,7 @@ export default function FoodTruckSection() {
                     </div>
                   ))}
                 </div>
-                <div className="space-y-2.5">
+                <div className="space-y-1">
                   {checklistRight.map((item) => (
                     <div key={item} className="flex items-center gap-2.5 group">
                       <span className="text-[#4DD7CB] font-bold group-hover:scale-125 transition-transform">✓</span>
@@ -71,14 +107,28 @@ export default function FoodTruckSection() {
               </div>
             </div>
 
-            <p className="mt-8 text-[#9CA3AF] text-[15px] leading-[24px]">
-              {t.truck.closing}
+            <p className="mt-8 max-w-[608px] text-[15px] leading-[24px] text-[#9CA3AF]">
+              {t.truck.closing
+                .replace("Your customers", "\nYour customers")
+                .replace("New location.", "\nNew location.")
+                .split("\n")
+                .map((line, index) => (
+                  <React.Fragment key={`${line}-${index}`}>
+                    {line}
+                    {index < 2 && <br />}
+                  </React.Fragment>
+                ))}
             </p>
 
             <button
               type="button"
               onClick={openInquiry}
-              className="mt-6 px-9 py-3.5 rounded-full bg-gradient-to-r from-[#0743FC] to-[#2563EB] text-white font-semibold text-[15.5px] shadow-[0_4px_24px_rgba(7,67,252,0.4)] hover:shadow-[0_6px_32px_rgba(7,67,252,0.6)] hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
+              className="mt-6 inline-flex items-center justify-center rounded-full text-[16px] font-semibold text-white shadow-[0_4px_24px_rgba(7,67,252,0.4)] hover:shadow-[0_6px_32px_rgba(44,175,228,0.6)] hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
+              style={{
+                width: "389px",
+                height: "64px",
+                backgroundImage: "linear-gradient(90deg, #0B43FF 0%, #2CAFE4 100%)",
+              }}
             >
               {t.truck.button}
             </button>

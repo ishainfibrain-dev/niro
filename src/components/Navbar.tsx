@@ -22,9 +22,23 @@ export default function Navbar() {
     setMobileMenuOpen(false);
     if (!onHome) return;
     e.preventDefault();
-    const target = document.querySelector(href);
+    const target = document.querySelector<HTMLElement>(href);
     if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
+      const isStackedNavigation = window.matchMedia("(max-width: 1023px)").matches;
+
+      if (isStackedNavigation) {
+        window.requestAnimationFrame(() => {
+          const headerHeight = document.querySelector<HTMLElement>(".niro-navbar")?.getBoundingClientRect().height ?? 0;
+          const targetTop = window.scrollY + target.getBoundingClientRect().top;
+          window.scrollTo({
+            top: Math.max(0, targetTop - headerHeight - 16),
+            behavior: "smooth",
+          });
+        });
+      } else {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+
       window.history.pushState(null, "", href);
     }
   };

@@ -15,15 +15,15 @@ export default function HowItWorksSection() {
       title: "Business Changes",
       icon: (
         <svg
-          viewBox="0 0 48 48"
+          viewBox="8 8 32 34"
           fill="none"
-          className="w-[40px] h-[40px] sm:w-[44px] sm:h-[44px] text-[#4DD7CB]"
+          className="w-[10px] h-[10px] text-[#4DD7CB]"
         >
           {/* Awning Top & Sides */}
           <path
             d="M10 19L12.5 10H35.5L38 19"
             stroke="#4DD7CB"
-            strokeWidth="3.2"
+            strokeWidth="2.6"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
@@ -31,7 +31,7 @@ export default function HowItWorksSection() {
           <path
             d="M10 19C10 22.8 19.3 22.8 19.3 19C19.3 22.8 28.7 22.8 28.7 19C28.7 22.8 38 22.8 38 19"
             stroke="#4DD7CB"
-            strokeWidth="3.2"
+            strokeWidth="2.6"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
@@ -39,20 +39,20 @@ export default function HowItWorksSection() {
           <path
             d="M19.3 10V19"
             stroke="#4DD7CB"
-            strokeWidth="3"
+            strokeWidth="2.4"
             strokeLinecap="round"
           />
           <path
             d="M28.7 10V19"
             stroke="#4DD7CB"
-            strokeWidth="3"
+            strokeWidth="2.4"
             strokeLinecap="round"
           />
           {/* Store Body Container */}
           <path
             d="M12 23V36C12 38.2 13.8 40 16 40H32C34.2 40 36 38.2 36 36V23"
             stroke="#4DD7CB"
-            strokeWidth="3.2"
+            strokeWidth="2.6"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
@@ -63,15 +63,15 @@ export default function HowItWorksSection() {
       title: "Merchant Updates Niro",
       icon: (
         <svg
-          viewBox="0 0 48 48"
+          viewBox="9 15 30 30"
           fill="none"
-          className="w-[40px] h-[40px] sm:w-[44px] sm:h-[44px] text-[#4DD7CB]"
+          className="w-[18px] h-[18px] text-[#4DD7CB]"
         >
           {/* Pencil body angled at 45 degrees */}
           <path
             d="M13 35L29 19L35 25L19 41L11 43L13 35Z"
             stroke="#4DD7CB"
-            strokeWidth="3.2"
+            strokeWidth="2.6"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
@@ -79,14 +79,14 @@ export default function HowItWorksSection() {
           <path
             d="M25 23L31 29"
             stroke="#4DD7CB"
-            strokeWidth="3"
+            strokeWidth="2.4"
             strokeLinecap="round"
           />
           {/* Eraser top cap */}
           <path
             d="M29 19C30.5 17.5 33.5 17.5 35 19L37 21C38.5 22.5 38.5 25.5 37 27L35 25"
             stroke="#4DD7CB"
-            strokeWidth="3.2"
+            strokeWidth="2.6"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
@@ -94,7 +94,7 @@ export default function HowItWorksSection() {
           <path
             d="M24 41H38"
             stroke="#4DD7CB"
-            strokeWidth="3.4"
+            strokeWidth="2.8"
             strokeLinecap="round"
           />
         </svg>
@@ -109,38 +109,38 @@ export default function HowItWorksSection() {
       ),
       icon: (
         <svg
-          viewBox="0 0 48 48"
+          viewBox="6 8 36 32"
           fill="none"
-          className="w-[40px] h-[40px] sm:w-[44px] sm:h-[44px] text-[#4DD7CB]"
+          className="w-[18px] h-[18px] text-[#4DD7CB]"
         >
           {/* Central solid circle dot */}
-          <circle cx="24" cy="24" r="4" fill="#4DD7CB" />
+          <circle cx="24" cy="24" r="3.5" fill="#4DD7CB" />
           {/* Inner Left Wave */}
           <path
             d="M18 16C13.8 20.2 13.8 27.8 18 32"
             stroke="#4DD7CB"
-            strokeWidth="3.2"
+            strokeWidth="2.6"
             strokeLinecap="round"
           />
           {/* Inner Right Wave */}
           <path
             d="M30 16C34.2 20.2 34.2 27.8 30 32"
             stroke="#4DD7CB"
-            strokeWidth="3.2"
+            strokeWidth="2.6"
             strokeLinecap="round"
           />
           {/* Outer Left Wave */}
           <path
             d="M12 10C5.5 17.5 5.5 30.5 12 38"
             stroke="#4DD7CB"
-            strokeWidth="3.2"
+            strokeWidth="2.6"
             strokeLinecap="round"
           />
           {/* Outer Right Wave */}
           <path
             d="M36 10C42.5 17.5 42.5 30.5 36 38"
             stroke="#4DD7CB"
-            strokeWidth="3.2"
+            strokeWidth="2.6"
             strokeLinecap="round"
           />
         </svg>
@@ -155,40 +155,40 @@ export default function HowItWorksSection() {
       ),
       icon: (
         <svg
-          viewBox="0 0 48 48"
+          viewBox="7 9 35 31"
           fill="none"
-          className="w-[40px] h-[40px] sm:w-[44px] sm:h-[44px] text-[#4DD7CB]"
+          className="w-[18px] h-[18px] text-[#4DD7CB]"
         >
           {/* Left User Head */}
           <circle
             cx="17"
             cy="16"
-            r="5.5"
+            r="5"
             stroke="#4DD7CB"
-            strokeWidth="3.2"
+            strokeWidth="2.6"
             strokeLinecap="round"
           />
           {/* Right User Head */}
           <circle
             cx="32"
             cy="16"
-            r="5.5"
+            r="5"
             stroke="#4DD7CB"
-            strokeWidth="3.2"
+            strokeWidth="2.6"
             strokeLinecap="round"
           />
           {/* Left User Torso (nested behind) */}
           <path
             d="M9 38C9 32 13 28 18 28C20.6 28 22.9 29.1 24.5 31"
             stroke="#4DD7CB"
-            strokeWidth="3.2"
+            strokeWidth="2.6"
             strokeLinecap="round"
           />
           {/* Right User Torso (front arch) */}
           <path
             d="M23 38C23 32 27 28 32 28C37 28 41 32 41 38H23Z"
             stroke="#4DD7CB"
-            strokeWidth="3.2"
+            strokeWidth="2.6"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
