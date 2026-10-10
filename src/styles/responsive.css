@@ -244,6 +244,28 @@ svg {
   }
 }
 
+/* Compact desktop: preserve the two-column layout without clipping the CTA. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .niro-go-live-section {
+    min-height: calc(100vh - 84px);
+    display: flex;
+    align-items: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .niro-go-live-section .niro-phone-image-container {
+    width: min(520px, 100%);
+    height: auto;
+    aspect-ratio: 650 / 776.91;
+  }
+
+  .niro-go-live-section .niro-phone-image-container img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 @media (min-width: 640px) and (max-width: 1023px) {
   .niro-hero-section {
     min-height: 560px;
@@ -498,6 +520,28 @@ svg {
 /* ==========================================================================
    TABLET RESPONSIVE RULES (640px to 1023px)
    ========================================================================== */
+/* Compact desktop: preserve the two-column layout without clipping the CTA. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .niro-go-live-section {
+    min-height: calc(100vh - 84px);
+    display: flex;
+    align-items: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .niro-go-live-section .niro-phone-image-container {
+    width: min(520px, 100%);
+    height: auto;
+    aspect-ratio: 650 / 776.91;
+  }
+
+  .niro-go-live-section .niro-phone-image-container img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 @media (min-width: 640px) and (max-width: 1023px) {
   .niro-map-section {
     padding-top: 64px;
@@ -1146,6 +1190,28 @@ svg {
   }
 }
 
+/* Compact desktop: preserve the two-column layout without clipping the CTA. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .niro-go-live-section {
+    min-height: calc(100vh - 84px);
+    display: flex;
+    align-items: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .niro-go-live-section .niro-phone-image-container {
+    width: min(520px, 100%);
+    height: auto;
+    aspect-ratio: 650 / 776.91;
+  }
+
+  .niro-go-live-section .niro-phone-image-container img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 @media (min-width: 640px) and (max-width: 1023px) {
   .niro-updates-heading {
     font-size: 32px;
@@ -1659,6 +1725,28 @@ svg {
 }
 
 /* Tablet Padding Rules */
+/* Compact desktop: preserve the two-column layout without clipping the CTA. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .niro-go-live-section {
+    min-height: calc(100vh - 84px);
+    display: flex;
+    align-items: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .niro-go-live-section .niro-phone-image-container {
+    width: min(520px, 100%);
+    height: auto;
+    aspect-ratio: 650 / 776.91;
+  }
+
+  .niro-go-live-section .niro-phone-image-container img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 @media (min-width: 640px) and (max-width: 1023px) {
   .niro-change-offer-section,
   .niro-search-vs-live-section,
