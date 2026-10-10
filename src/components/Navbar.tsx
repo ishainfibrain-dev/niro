@@ -69,7 +69,7 @@ export default function Navbar() {
             alt="NIRO Logo"
             width={112}
             height={28}
-            className="h-7 w-auto object-contain"
+            className="niro-navbar-logo object-contain"
             style={{ width: "auto", height: "auto" }}
             priority
           />

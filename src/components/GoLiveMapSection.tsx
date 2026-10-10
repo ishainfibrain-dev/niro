@@ -10,8 +10,8 @@ export default function GoLiveMapSection() {
   const { openInquiry } = useInquiry();
   const listItems = [
     { title: t.business.items[0], icon: "/images/icon-shop.png", alt: "Business storefront", width: 36, height: 36 },
-    { title: t.business.items[1], icon: "/images/icon-tag.png", alt: "Promotion tag", width: 32, height: 32 },
-    { title: t.business.items[2], icon: "/images/icon-offer-badge.png", alt: "Offer badge", width: 31, height: 31 },
+    { title: t.business.items[1], icon: "/images/business-promotion-tag.png", alt: "Promotion tag", width: 32, height: 32 },
+    { title: t.business.items[2], icon: "/images/business-offer-badge.png", alt: "Offer badge", width: 31, height: 31 },
     { title: t.business.items[3], icon: "/images/icon-pin.png", alt: "Location pin", width: 24, height: 33 },
     { title: t.business.items[4], icon: "/images/icon-bell.png", alt: "Notification bell", width: 30, height: 30 },
   ];

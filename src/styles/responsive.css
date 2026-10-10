@@ -102,6 +102,13 @@ svg {
   border-bottom: 1px solid #1f2937;
 }
 
+.niro-navbar-logo {
+  width: 112px !important;
+  height: 28px !important;
+  max-width: none;
+  flex: 0 0 auto;
+}
+
 .niro-navbar-inner {
   max-width: 1440px;
   margin-left: auto;
@@ -1292,6 +1299,22 @@ svg {
   user-select: none;
   padding-top: 100px;
   padding-bottom: 110px;
+}
+
+@media (min-width: 1024px) {
+  /* Fit the complete Change Your Offer experience, including its CTA, in view. */
+  .niro-change-offer-section {
+    min-height: calc(100vh - 84px);
+    display: flex;
+    align-items: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .niro-change-offer-section .niro-phone-image-container {
+    height: min(776.91px, calc(100vh - 132px));
+    width: min(650px, calc((100vh - 132px) * 0.83665));
+  }
 }
 
 .niro-search-vs-live-section {
