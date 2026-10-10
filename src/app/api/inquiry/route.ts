@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 import { buildInquiryEmail } from "@/emails/inquiry-email";
 
-const INQUIRY_EMAIL = "pratik.rupani@infibrain.com";
+const INQUIRY_EMAIL = "founder@niro-app.com";
 
 type InquiryBody = {
   businessName?: string;
