@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useI18n } from "@/i18n/language";
 
@@ -36,7 +37,8 @@ export default function Navbar() {
           });
         });
       } else {
-        target.scrollIntoView({ behavior: "smooth" });
+        // Desktop sections define their own scroll margin to clear the sticky header.
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
       }
 
       window.history.pushState(null, "", href);
@@ -57,7 +59,7 @@ export default function Navbar() {
     <header className="niro-navbar">
       <div className="niro-navbar-inner">
         {/* Brand Logo */}
-        <a
+        <Link
           href="/"
           onClick={handleLogoClick}
           className="flex items-center group select-none transition-opacity hover:opacity-90 cursor-pointer"
@@ -71,10 +73,10 @@ export default function Navbar() {
             style={{ width: "auto", height: "auto" }}
             priority
           />
-        </a>
+        </Link>
 
         {/* Desktop Nav Items - Inter, 500 (Medium), 16px, 24px line-height, 0% letter spacing, center aligned */}
-        <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
+        <nav className="niro-desktop-nav items-center" style={{ columnGap: "42px" }}>
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -89,7 +91,7 @@ export default function Navbar() {
         </nav>
 
         {/* Right Section: Language Dropdown */}
-        <div className="hidden lg:flex items-center">
+        <div className="niro-desktop-language items-center">
           <div className="relative">
             <button
               type="button"
@@ -100,7 +102,7 @@ export default function Navbar() {
               aria-expanded={langDropdownOpen}
             >
               {/* US Flag SVG Icon */}
-              <span className="w-5 h-3.5 overflow-hidden rounded-[2px] inline-flex items-center justify-center shadow-xs">
+              <span className="niro-language-flag w-5 h-3.5 overflow-hidden rounded-[2px] inline-flex items-center justify-center shadow-xs">
                 <LangFlag code={lang} />
               </span>
               <span className="font-medium text-[16px] leading-[24px] tracking-[0px]">
@@ -139,7 +141,7 @@ export default function Navbar() {
                     }`}
                   >
                     <span className="flex items-center gap-2">
-                      <span className="w-5 h-3.5 overflow-hidden rounded-[2px] inline-flex">
+                      <span className="niro-language-flag w-5 h-3.5 overflow-hidden rounded-[2px] inline-flex">
                         <LangFlag code={item.code} />
                       </span>
                       <span>{item.label}</span>
@@ -155,9 +157,9 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Hamburger Button */}
-        <div className="lg:hidden flex items-center gap-3">
+        <div className="niro-mobile-controls items-center gap-3">
           <div className="flex items-center gap-1.5 text-white text-sm mr-2 font-medium">
-            <span className="w-5 h-3.5 overflow-hidden rounded-[2px] inline-flex">
+            <span className="niro-language-flag w-5 h-3.5 overflow-hidden rounded-[2px] inline-flex">
               <LangFlag code={lang} />
             </span>
             <span>{selectedLang}</span>
@@ -195,7 +197,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-black/95 border-b border-white/10 px-6 py-5 flex flex-col gap-4 backdrop-blur-lg">
+        <div className="niro-mobile-menu bg-black/95 border-b border-white/10 px-6 py-5 flex flex-col gap-4 backdrop-blur-lg">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -221,7 +223,7 @@ export default function Navbar() {
                     : "text-neutral-300"
                 }`}
               >
-                <span className="w-5 h-3.5 overflow-hidden rounded-[2px] inline-flex">
+                <span className="niro-language-flag w-5 h-3.5 overflow-hidden rounded-[2px] inline-flex">
                   <LangFlag code={item.code} />
                 </span>
                 {item.label}

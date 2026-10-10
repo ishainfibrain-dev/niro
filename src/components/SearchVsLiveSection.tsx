@@ -5,13 +5,13 @@ import Image from "next/image";
 import { useI18n } from "@/i18n/language";
 
 export default function SearchVsLiveSection() {
-  const { t } = useI18n();
+  const { lang, t } = useI18n();
   const listItems = [
-    { title: t.people.items[0], icon: "/images/icon-shop.png", alt: "Business storefront" },
-    { title: t.people.items[1], icon: "/images/icon-tag.png", alt: "Promotion tag" },
-    { title: t.people.items[2], icon: "/images/icon-offer-badge.png", alt: "Offer badge" },
-    { title: t.people.items[3], icon: "/images/clarity_map-marker-line.png", alt: "Location marker" },
-    { title: t.people.items[4], icon: "/images/icon-bell.png", alt: "Notification bell" },
+    { title: t.people.items[0], icon: "/images/icon-shop.png", alt: "Business storefront", width: 36, height: 36 },
+    { title: t.people.items[1], icon: "/images/icon-current-promotions.png", alt: "Current promotions tag", width: 36, height: 36 },
+    { title: t.people.items[2], icon: "/images/icon-offer-badge.png", alt: "Offer badge", width: 31, height: 31 },
+    { title: t.people.items[3], icon: "/images/clarity_map-marker-line.png", alt: "Location marker", width: 36, height: 36 },
+    { title: t.people.items[4], icon: "/images/icon-bell.png", alt: "Notification bell", width: 30, height: 30 },
   ];
 
   return (
@@ -32,7 +32,7 @@ export default function SearchVsLiveSection() {
               {t.people.intro}
             </p>
 
-            <div className="niro-people-compare reveal-on-scroll delay-150">
+            <div className={`niro-people-compare reveal-on-scroll delay-150${lang === "es" ? " niro-people-compare--spanish" : ""}`}>
               <div className="niro-people-compare-box">
                 <span className="niro-people-compare-label">{t.people.instead}</span>
                 <span className="niro-people-compare-quote">{t.people.insteadQuote}</span>
@@ -46,7 +46,7 @@ export default function SearchVsLiveSection() {
 
               <div className="niro-people-compare-box niro-people-compare-box-live">
                 <span className="niro-people-compare-label">{t.people.niro}</span>
-                <span className="niro-people-compare-quote niro-people-compare-quote-live">{t.people.niroQuote.replace("happening ", "happening\n")}</span>
+                <span className="niro-people-compare-quote niro-people-compare-quote-live">{t.people.niroQuote}</span>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@ export default function SearchVsLiveSection() {
                   key={index}
                   className="py-4.5 first:pt-0 flex items-center gap-4 group cursor-default hover:pl-2 transition-all duration-300"
                 >
-                  <div className="group-hover:scale-115 transition-transform duration-300"><Image src={item.icon} alt={item.alt} width={34} height={34} className="h-[34px] w-[34px] object-contain" /></div>
+                  <div className="group-hover:scale-115 transition-transform duration-300"><Image src={item.icon} alt={item.alt} width={item.width} height={item.height} className="object-contain" /></div>
                   <span className="text-white font-[var(--font-inter)] text-[18px] leading-[24px] font-semibold tracking-normal group-hover:text-[#4DD7CB] transition-colors">
                     {item.title}
                   </span>
@@ -67,7 +67,7 @@ export default function SearchVsLiveSection() {
               ))}
             </div>
 
-            <p className="mt-9 text-[#9CA3AF] text-[20px] leading-[30px]">
+            <p className="mt-9 text-[#9CA3AF] text-[15px] leading-[24px]">
               {t.people.closing}
             </p>
 

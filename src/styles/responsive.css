@@ -99,7 +99,7 @@ svg {
   position: sticky;
   top: 0;
   z-index: 50;
-  border-bottom: none;
+  border-bottom: 1px solid #1f2937;
 }
 
 .niro-navbar-inner {
@@ -112,6 +112,55 @@ svg {
   height: 74px;
   padding-left: 24px;
   padding-right: 24px;
+}
+
+/* Keep the complete navigation on desktop in every language. The compact
+   language-and-hamburger header is reserved for tablet and mobile only. */
+.niro-desktop-nav,
+.niro-desktop-language {
+  display: none;
+}
+
+.niro-mobile-controls,
+.niro-mobile-menu {
+  display: flex;
+}
+
+@media (min-width: 1024px) {
+  .niro-navbar-inner {
+    max-width: 1320px;
+    height: 84px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .niro-desktop-nav,
+  .niro-desktop-language {
+    display: flex;
+  }
+
+  .niro-desktop-nav {
+    column-gap: 42px !important;
+    row-gap: 0;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .niro-mobile-controls,
+  .niro-mobile-menu {
+    display: none;
+  }
+
+  .niro-desktop-language .niro-language-flag {
+    width: 24px;
+    height: 24px;
+    border-radius: 9999px;
+  }
+
+  .niro-desktop-language button {
+    gap: 10px;
+    padding: 6px 0;
+  }
 }
 
 @media (min-width: 640px) {
@@ -514,6 +563,13 @@ svg {
     line-height: 1.286;
     letter-spacing: 0;
     white-space: normal;
+  }
+  .niro-search-vs-live-section h2.heading-write,
+  .niro-go-live-section h2.heading-write,
+  .niro-food-truck-section h2.heading-write,
+  .niro-change-offer-section h2.heading-write {
+    font-size: clamp(20px, 5.4vw, 28px);
+    line-height: 1.286;
   }
 
   .niro-comparison-card {
@@ -1056,6 +1112,54 @@ svg {
     line-height: 17px;
   }
 }
+@media (min-width: 640px) and (max-width: 1279px) {
+  .niro-search-vs-live-section h2.heading-write,
+  .niro-go-live-section h2.heading-write,
+  .niro-food-truck-section h2.heading-write {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .niro-search-vs-live-section .heading-line,
+  .niro-go-live-section .heading-line,
+  .niro-food-truck-section .heading-line {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    clip-path: none !important;
+    animation: none !important;
+  }
+
+  .niro-search-vs-live-section .heading-write.is-revealed .heading-line,
+  .niro-go-live-section .heading-write.is-revealed .heading-line,
+  .niro-food-truck-section .heading-write.is-revealed .heading-line {
+    animation: none;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .niro-updates-heading {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .niro-updates-heading .heading-line {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    clip-path: none !important;
+    animation: none !important;
+  }
+
+  .niro-updates-heading.heading-write.is-revealed .heading-line {
+    animation: none;
+  }
+}
+
 @media (max-width: 639px) {
   .niro-updates-section {
     /* The header offset is handled by the anchor logic; avoid a second large gap. */
@@ -1095,8 +1199,10 @@ svg {
     object-fit: contain;
   }
   /* Keep the two primary mobile CTAs visually consistent and compact. */
+  .niro-change-offer-section button,
   .niro-search-vs-live-section button,
-  .niro-go-live-section button {
+  .niro-go-live-section button,
+  .niro-food-truck-section button {
     width: 260px !important;
     height: 54px !important;
     font-size: 15px !important;
@@ -1114,6 +1220,20 @@ svg {
   .niro-updates-heading {
     font-size: clamp(23px, 6vw, 32px);
     line-height: 1.25;
+  }
+
+  .niro-updates-heading .heading-line {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    clip-path: none !important;
+    animation: none !important;
+  }
+
+  .niro-updates-heading.heading-write.is-revealed .heading-line {
+    animation: none;
   }
   .niro-updates-cards-container {
     width: 100%;
@@ -1185,6 +1305,19 @@ svg {
   padding-bottom: 110px;
 }
 
+@media (min-width: 1024px) {
+  /* Fill the visible desktop area and centre the For People content vertically. */
+  .niro-search-vs-live-section {
+    min-height: calc(100vh - 84px);
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    scroll-margin-top: 84px;
+  }
+}
+
 @media (min-width: 1280px) {
   .niro-people-layout {
     grid-template-columns: 614px minmax(0, 1fr);
@@ -1198,7 +1331,8 @@ svg {
   align-items: stretch;
   width: 614px;
   max-width: 100%;
-  height: 135px;
+  min-height: 135px;
+  height: auto;
   gap: 20px;
   margin-top: 48px;
   box-sizing: border-box;
@@ -1207,12 +1341,13 @@ svg {
 .niro-people-compare-box {
   flex: 1 1 0;
   min-width: 0;
-  height: 100%;
+  min-height: 135px;
+  height: auto;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 22px 20px;
+  justify-content: flex-start;
+  padding: 14px 20px 22px;
   border-radius: 16px;
   background: rgba(6, 9, 19, 0.7);
   border: 1px solid #2a3548;
@@ -1222,6 +1357,14 @@ svg {
   background: linear-gradient(180deg, rgba(7, 31, 63, 0.94) 0%, rgba(7, 56, 62, 0.9) 100%);
   border-color: rgba(77, 215, 203, 0.9);
   box-shadow: 0 0 24px rgba(77, 215, 203, 0.2), inset 0 1px 0 rgba(77, 215, 203, 0.08);
+}
+
+.niro-people-compare--spanish .niro-people-compare-label {
+  min-height: 44px;
+}
+.niro-people-compare--spanish .niro-people-compare-box-live {
+  min-height: 140px;
+  padding-bottom: 26px;
 }
 
 .niro-people-compare-label {
@@ -1245,7 +1388,8 @@ svg {
   color: #4dd7cb;
   font-weight: 700;
   max-width: none;
-  white-space: pre;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .niro-people-compare-arrow {
@@ -1261,7 +1405,24 @@ svg {
   height: 24px;
 }
 
-@media (max-width: 639px) {
+@media (max-width: 1023px) {
+  .niro-search-vs-live-section .heading-line,
+  .niro-go-live-section .heading-line,
+  .niro-food-truck-section .heading-line {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    clip-path: none;
+    animation: none;
+  }
+
+  .niro-search-vs-live-section .heading-write.is-revealed .heading-line,
+  .niro-go-live-section .heading-write.is-revealed .heading-line,
+  .niro-food-truck-section .heading-write.is-revealed .heading-line {
+    animation: none;
+  }
+
   .niro-people-compare {
     flex-direction: column;
     width: 100%;
@@ -1273,6 +1434,11 @@ svg {
     height: auto;
     min-height: 96px;
   }
+  .niro-people-compare--spanish .niro-people-compare-box:not(.niro-people-compare-box-live) {
+    min-height: 112px;
+    padding-bottom: 24px;
+  }
+
 
   .niro-people-compare-arrow {
     transform: rotate(90deg);
@@ -1305,7 +1471,23 @@ svg {
   padding-bottom: 110px;
 }
 
-/* ==========================================================================
+@media (min-width: 1024px) {
+  /* Keep the Mobile Business section vertically balanced in the viewport. */
+  .niro-food-truck-section {
+    min-height: calc(100vh - 84px);
+    display: flex;
+    align-items: center;
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .niro-food-truck-section .niro-phone-image-container {
+    height: min(776.91px, calc(100vh - 180px));
+    width: min(650px, calc((100vh - 180px) * 0.83665));
+  }
+}
+
+/* ========================================================================== 
    5. HOW IT WORKS (LIVE MAP WORKFLOW)
    Desktop frame matches the 1920 reference: 1600px panel, 160px side gutters.
    ========================================================================== */
@@ -1642,7 +1824,8 @@ svg {
 .niro-go-live-section,
 .niro-food-truck-section,
 .niro-how-it-works-section {
-  scroll-margin-top: 74px;
+  /* Leave a 52px visual offset: enough to clear the header while keeping the CTA in view. */
+  scroll-margin-top: 52px;
 }
 
 /* Mobile and tablet anchor targets need room below the sticky header. */
