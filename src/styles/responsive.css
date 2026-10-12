@@ -1523,6 +1523,14 @@ svg {
     height: auto;
     min-height: 96px;
   }
+
+  /* The live question wraps to two lines on narrow screens. Reserve enough
+     space beneath it so it never sits against the card's lower border. */
+  .niro-people-compare-box-live {
+    min-height: 120px;
+    padding-bottom: 20px;
+  }
+
   .niro-people-compare--spanish .niro-people-compare-box:not(.niro-people-compare-box-live) {
     min-height: 112px;
     padding-bottom: 24px;
@@ -2393,6 +2401,243 @@ button:active {
 
   .niro-legal-toc a {
     width: 100%;
+  }
+}
+
+/* Samsung Galaxy S8+ portrait viewport only: keep landing-page headings uniform. */
+@media (width: 360px) and (height: 740px) {
+  :is(
+    .niro-hero-title,
+    .niro-map-heading,
+    .niro-map-heading-line,
+    .niro-map-heading-span,
+    .niro-livemap-title,
+    .niro-updates-heading,
+    .niro-search-vs-live-section h2.heading-write,
+    .niro-go-live-section h2.heading-write,
+    .niro-food-truck-section h2.heading-write,
+    .niro-change-offer-section h2.heading-write
+  ) {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+/* iPad Pro portrait only: let the business section follow the People section without viewport-centering whitespace. */
+@media (width: 1024px) and (height: 1366px) {
+  .niro-go-live-section {
+    min-height: 0;
+    display: block;
+    align-items: initial;
+  }
+}
+
+/* iPad Mini portrait viewport only: match every landing-page heading to Change Your Offer. */
+@media (width: 768px) and (height: 1024px) {
+  :is(
+    .niro-hero-title,
+    .niro-map-heading,
+    .niro-map-heading-line,
+    .niro-map-heading-span,
+    .niro-livemap-title,
+    .niro-updates-heading,
+    .niro-search-vs-live-section h2.heading-write,
+    .niro-go-live-section h2.heading-write,
+    .niro-food-truck-section h2.heading-write,
+    .niro-change-offer-section h2.heading-write
+  ) {
+    font-size: 38px;
+    line-height: 48px;
+  }
+}
+
+/* iPad Air portrait viewport only: match every landing-page heading to Change Your Offer. */
+@media (width: 820px) and (height: 1180px) {
+  :is(
+    .niro-hero-title,
+    .niro-map-heading,
+    .niro-map-heading-line,
+    .niro-map-heading-span,
+    .niro-livemap-title,
+    .niro-updates-heading,
+    .niro-search-vs-live-section h2.heading-write,
+    .niro-go-live-section h2.heading-write,
+    .niro-food-truck-section h2.heading-write,
+    .niro-change-offer-section h2.heading-write
+  ) {
+    font-size: 42px;
+    line-height: 54px;
+  }
+}
+
+/* Surface Pro portrait only: align the promotions section with the page inset and show its phone before its content. */
+@media (width: 912px) and (height: 1368px) {
+  .niro-change-offer-section > div {
+    max-width: 650px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .niro-change-offer-section .niro-phone-split > :first-child {
+    order: 2;
+  }
+
+  .niro-change-offer-section .niro-phone-split > :last-child {
+    order: 1;
+  }
+}
+
+/* Asus Zenbook Fold portrait only: use the same centered content width as the Live Updates section. */
+@media (width: 853px) and (height: 1280px) {
+  .niro-change-offer-section > div {
+    max-width: 650px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* Phone layouts: present each app preview before its related content, with a consistent page inset. */
+@media (max-width: 639px) {
+  .niro-change-offer-section .niro-phone-split > :first-child,
+  .niro-food-truck-section .niro-phone-split > :first-child {
+    order: 2;
+  }
+
+  .niro-change-offer-section .niro-phone-split > :last-child,
+  .niro-food-truck-section .niro-phone-split > :last-child {
+    order: 1;
+  }
+
+  .niro-updates-section,
+  .niro-change-offer-section > div,
+  .niro-search-vs-live-section > div,
+  .niro-go-live-section > div,
+  .niro-food-truck-section > div {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* Asus Zenbook Fold portrait only: unify landing-page heading scale with Change Your Offer. */
+@media (width: 853px) and (height: 1280px) {
+  :is(
+    .niro-hero-title,
+    .niro-map-heading,
+    .niro-map-heading-line,
+    .niro-map-heading-span,
+    .niro-livemap-title,
+    .niro-updates-heading,
+    .niro-search-vs-live-section h2.heading-write,
+    .niro-go-live-section h2.heading-write,
+    .niro-food-truck-section h2.heading-write,
+    .niro-change-offer-section h2.heading-write
+  ) {
+    font-size: 42px;
+    line-height: 54px;
+  }
+}
+
+/* Asus Zenbook Fold portrait only: keep phone previews before their related content. */
+@media (width: 853px) and (height: 1280px) {
+  .niro-change-offer-section .niro-phone-split > :first-child,
+  .niro-food-truck-section .niro-phone-split > :first-child {
+    order: 2;
+  }
+
+  .niro-change-offer-section .niro-phone-split > :last-child,
+  .niro-food-truck-section .niro-phone-split > :last-child {
+    order: 1;
+  }
+}
+
+/* Asus Zenbook Fold portrait only: keep heading scale and phone-first order identical in every language. */
+@media (width: 853px) and (height: 1280px) {
+  :is(
+    .niro-hero-title,
+    .niro-map-heading,
+    .niro-map-heading-line,
+    .niro-map-heading-span,
+    .niro-livemap-title,
+    .niro-updates-heading,
+    .niro-search-vs-live-section h2.heading-write,
+    .niro-go-live-section h2.heading-write,
+    .niro-food-truck-section h2.heading-write,
+    .niro-change-offer-section h2.heading-write
+  ) {
+    font-size: 42px !important;
+    line-height: 54px !important;
+  }
+
+  .niro-change-offer-section .niro-phone-split > :first-child,
+  .niro-food-truck-section .niro-phone-split > :first-child {
+    grid-row: 2;
+  }
+
+  .niro-change-offer-section .niro-phone-split > :last-child,
+  .niro-food-truck-section .niro-phone-split > :last-child {
+    grid-row: 1;
+  }
+}
+
+/* Asus Zenbook Fold portrait only: keep every landing-section content frame aligned. */
+@media (width: 853px) and (height: 1280px) {
+  .niro-search-vs-live-section > div,
+  .niro-go-live-section > div,
+  .niro-food-truck-section > div,
+  .niro-change-offer-section > div {
+    max-width: 650px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* Asus Zenbook Fold portrait only: force the one-column phone-first sequence. */
+@media (width: 853px) and (height: 1280px) {
+  .niro-change-offer-section .niro-phone-split,
+  .niro-food-truck-section .niro-phone-split {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* iPad Air portrait only: align content frames and present phone previews before their content. */
+@media (width: 820px) and (height: 1180px) {
+  .niro-search-vs-live-section > div,
+  .niro-go-live-section > div,
+  .niro-food-truck-section > div,
+  .niro-change-offer-section > div {
+    max-width: 650px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .niro-change-offer-section .niro-phone-split,
+  .niro-food-truck-section .niro-phone-split {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .niro-change-offer-section .niro-phone-split > :first-child,
+  .niro-food-truck-section .niro-phone-split > :first-child {
+    order: 2;
+  }
+
+  .niro-change-offer-section .niro-phone-split > :last-child,
+  .niro-food-truck-section .niro-phone-split > :last-child {
+    order: 1;
+  }
+}
+
+/* Asus Zenbook Fold portrait only: lock shared landing content to one horizontal frame. */
+@media (width: 853px) and (height: 1280px) {
+  .niro-search-vs-live-section > div,
+  .niro-go-live-section > div,
+  .niro-food-truck-section > div,
+  .niro-change-offer-section > div {
+    width: 650px !important;
+    max-width: calc(100% - 128px) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
