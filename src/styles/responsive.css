@@ -3079,3 +3079,45 @@ button:active {
     line-height: 1.25;
   }
 }
+
+/* Keep the food-truck update flow on one row on desktop, including Spanish labels. */
+@media (min-width: 1024px) {
+  .niro-truck-steps {
+    flex-wrap: nowrap;
+  }
+
+  .niro-truck-step {
+    white-space: nowrap;
+  }
+
+  .niro-truck-step-arrow {
+    flex: 0 0 auto;
+  }
+}
+
+
+/* Spanish copy is longer; keep the full-screen Live Map subtitle aligned to the English two-line composition. */
+@media (min-width: 1280px) {
+  html[lang="es"] .niro-livemap-subtitle {
+    max-width: 920px;
+  }
+
+  html[lang="es"] .niro-livemap-subtitle p {
+    white-space: nowrap;
+  }
+}
+
+
+/* iPad Pro portrait: keep both comparison-card labels on one baseline. */
+@media (width: 1024px) and (height: 1366px) {
+  .niro-people-compare-label {
+    min-height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+  }
+
+  .niro-people-compare-quote {
+    margin-top: 6px;
+  }
+}

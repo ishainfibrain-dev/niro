@@ -319,7 +319,7 @@ const es: typeof en = {
     line2: "Vuelve a aparecer EN VIVO en el mapa.",
     p1: "Los food trucks son uno de los mejores ejemplos de por qué Niro es diferente.\nUn negocio sobre ruedas puede servir almuerzos en el centro, moverse a una cervecería por la tarde y volver a cambiar de lugar para un evento nocturno.",
     p2: "Cuando tu negocio cambia de sitio, deberías poder actualizar tu ubicación en Niro y hacer que aparezca EN VIVO al instante.",
-    steps: ["Muévete", "Actualiza", "Sal en vivo", "Haz que te descubran"],
+    steps: ["Muévete", "Actualiza", "Sal en vivo", "Sé visible"],
     boxTitle: "Un food truck también puede actualizar:",
     left: ["Especial del día", "Promociones actuales del menú", "Ubicación en tiempo real"],
     right: ["Ofertas por tiempo limitado", "Horarios de atención", "Hora de la próxima parada"],
@@ -333,7 +333,7 @@ const es: typeof en = {
     cards: [
       "El negocio cambia",
       "El negocio actualiza Niro",
-      "La actualización aparece EN VIVO\nen el mapa",
+      "Actualización EN VIVO\nen el mapa",
       "Los clientes cercanos\nlo descubren",
     ],
     taglineLead: "CÁMBIALO. PUBLÍCALO.",

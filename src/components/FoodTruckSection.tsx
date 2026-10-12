@@ -38,11 +38,11 @@ export default function FoodTruckSection() {
             </div>
 
             {/* Flow Steps Pills with Arrows */}
-            <div className="mt-8 flex flex-wrap items-center gap-2 pl-[30px] sm:gap-3 reveal-on-scroll delay-100">
+            <div className="niro-truck-steps mt-8 flex flex-wrap items-center gap-2 pl-[30px] sm:gap-3 reveal-on-scroll delay-100">
               {steps.map((step, idx) => (
                 <React.Fragment key={`${step}-${idx}`}>
                                     <div
-                    className="inline-flex items-center justify-center rounded-lg border px-4 py-2 text-[15px] font-semibold leading-none transition-all duration-200 hover:-translate-y-0.5"
+                    className="niro-truck-step inline-flex items-center justify-center rounded-lg border px-4 py-2 text-[15px] font-semibold leading-none transition-all duration-200 hover:-translate-y-0.5"
                     style={{
                       minWidth: ["77px", "91px", "72px", "160px"][idx],
                       minHeight: "42px",
@@ -65,7 +65,7 @@ export default function FoodTruckSection() {
                     {step}
                   </div>
                   {idx < steps.length - 1 && (
-                    <span className="text-[#4DD7CB] text-[18px] leading-none">→</span>
+                    <span className="niro-truck-step-arrow text-[#4DD7CB] text-[18px] leading-none">→</span>
                   )}
                 </React.Fragment>
               ))}
