@@ -1683,15 +1683,16 @@ svg {
 
 .niro-flow-card {
   flex: 1;
-  min-height: 195px;
-  padding: 30px 18px 24px;
+  min-width: 0;
+  min-height: 169px;
+  padding: 24px 18px 18px;
   border-radius: 16px;
   background: rgba(7, 12, 24, 0.72);
   border: 1px solid rgba(36, 52, 84, 0.95);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
   gap: 18px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
@@ -1705,7 +1706,22 @@ svg {
   box-shadow: 0 8px 30px rgba(77, 215, 203, 0.25);
 }
 
-.niro-flow-card > div svg {
+.niro-flow-card-icon {
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  display: grid;
+  place-items: center;
+  line-height: 0;
+  transition: transform 0.3s ease;
+}
+
+.niro-flow-card:hover .niro-flow-card-icon {
+  transform: scale(1.1) rotate(2deg);
+}
+
+.niro-flow-card-icon svg {
+  display: block;
   width: 54px !important;
   height: 52px !important;
 }
@@ -1718,7 +1734,10 @@ svg {
   line-height: 22px;
   margin: 0;
   transition: color 0.2s ease;
+  width: 100%;
   max-width: 220px;
+  text-align: center;
+  overflow-wrap: anywhere;
 }
 
 .niro-flow-arrow {
@@ -1919,11 +1938,24 @@ svg {
   }
 
   .niro-flow-card {
-    min-height: 132px;
-    width: 100%;
-  }
+  flex: 1;
+  min-width: 0;
+  min-height: 169px;
+  padding: 24px 18px 18px;
+  border-radius: 16px;
+  background: rgba(7, 12, 24, 0.72);
+  border: 1px solid rgba(36, 52, 84, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  gap: 18px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-  .niro-flow-card > div svg {
+  .niro-flow-card-icon svg {
     width: 54px !important;
     height: 52px !important;
   }
@@ -1944,7 +1976,8 @@ svg {
     margin-top: 12px;
   }
 }
-/* ==========================================================================
+
+/* ===========================================================================
    6. SCROLL ANIMATIONS & MICRO-INTERACTIONS
    ========================================================================== */
 @media (prefers-reduced-motion: no-preference) {

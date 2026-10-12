@@ -221,7 +221,7 @@ export default function HowItWorksSection() {
                 <div
                   className={`niro-flow-card reveal-on-scroll reveal-scale ${delays[idx]} group`}
                 >
-                  <div className="group-hover:scale-110 group-hover:rotate-2 transition-transform duration-300 flex items-center justify-center">
+                  <div className="niro-flow-card-icon" aria-hidden="true">
                     {step.icon}
                   </div>
                   <h3 className="niro-flow-card-title group-hover:text-[#4DD7CB]">
