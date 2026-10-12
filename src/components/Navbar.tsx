@@ -25,7 +25,7 @@ export default function Navbar() {
     e.preventDefault();
     const target = document.querySelector<HTMLElement>(href);
     if (target) {
-      const isStackedNavigation = window.matchMedia("(max-width: 1023px)").matches;
+      const isStackedNavigation = window.matchMedia("(max-width: 1279px)").matches;
 
       if (isStackedNavigation) {
         window.requestAnimationFrame(() => {
@@ -158,11 +158,43 @@ export default function Navbar() {
 
         {/* Mobile Hamburger Button */}
         <div className="niro-mobile-controls items-center gap-3">
-          <div className="flex items-center gap-1.5 text-white text-sm mr-2 font-medium">
-            <span className="niro-language-flag w-5 h-3.5 overflow-hidden rounded-[2px] inline-flex">
-              <LangFlag code={lang} />
-            </span>
-            <span>{selectedLang}</span>
+          <div className="relative mr-2">
+            <button
+              type="button"
+              onClick={() => setLangDropdownOpen(!langDropdownOpen)}
+              onBlur={() => setTimeout(() => setLangDropdownOpen(false), 200)}
+              className="flex items-center gap-1.5 text-white text-sm font-medium cursor-pointer rounded focus:outline-none"
+              aria-label="Change language"
+              aria-expanded={langDropdownOpen}
+            >
+              <span className="niro-language-flag w-5 h-3.5 overflow-hidden rounded-[2px] inline-flex">
+                <LangFlag code={lang} />
+              </span>
+              <span>{selectedLang}</span>
+            </button>
+
+            {langDropdownOpen && (
+              <div className="absolute right-0 top-full mt-3 w-36 bg-[#111111] border border-white/10 rounded-lg shadow-2xl py-1 z-50">
+                {languages.map((item) => (
+                  <button
+                    key={item.code}
+                    type="button"
+                    onClick={() => {
+                      setLang(item.code);
+                      setLangDropdownOpen(false);
+                    }}
+                    className={`w-full text-left px-3 py-2 text-sm flex items-center gap-2 hover:bg-white/10 transition-colors ${
+                      lang === item.code ? "text-white font-semibold" : "text-neutral-300"
+                    }`}
+                  >
+                    <span className="niro-language-flag w-5 h-3.5 overflow-hidden rounded-[2px] inline-flex">
+                      <LangFlag code={item.code} />
+                    </span>
+                    <span>{item.label}</span>
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
           <button
             type="button"

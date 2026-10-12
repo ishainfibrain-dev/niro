@@ -36,7 +36,7 @@ export default function GoLiveMapSection() {
           </div>
 
           {/* Right Column: Heading, Subtitle, List & Button */}
-          <div className="flex flex-col items-start text-left order-2 lg:order-2 lg:pt-11 reveal-on-scroll reveal-right">
+          <div className="niro-go-live-content flex flex-col items-start text-left order-2 lg:order-2 reveal-on-scroll reveal-right">
             <h2 className="heading-write reveal-on-scroll text-white font-[800] text-[32px] sm:text-[38px] md:text-[42px] leading-[42px] sm:leading-[48px] md:leading-[54px] tracking-tight">
               <span className="heading-line">{t.business.line1}</span>
               <span className="heading-line mt-1">{t.business.line2}</span>

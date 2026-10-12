@@ -46,7 +46,7 @@ export default function ChangeOfferSection() {
       <div className="max-w-[1480px] mx-auto px-6 sm:px-10 lg:px-14">
         <div className="niro-phone-split grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column: Heading, Paragraphs, Cards, Button */}
-          <div className="flex flex-col items-start text-left reveal-on-scroll reveal-left">
+          <div className="order-2 lg:order-1 flex flex-col items-start text-left reveal-on-scroll reveal-left">
             <h2 className="heading-write reveal-on-scroll w-full max-w-full text-white font-[800] text-[32px] sm:text-[38px] md:text-[42px] leading-[42px] sm:leading-[48px] md:leading-[54px] tracking-tight">
               <span className="heading-line">{t.offer.line1}</span>
               <span className="heading-line mt-1">{t.offer.line2}</span>
@@ -122,7 +122,7 @@ export default function ChangeOfferSection() {
           </div>
 
           {/* Right Column: Mobile App Mockup (m2.png) */}
-          <div className="flex justify-center items-center relative reveal-on-scroll reveal-right delay-150">
+          <div className="order-1 lg:order-2 flex justify-center items-center relative reveal-on-scroll reveal-right delay-150">
             {/* Background Glow */}
             <div className="absolute w-[500px] h-[500px] bg-[#0743FC]/25 rounded-full blur-[130px] animate-ambient-glow pointer-events-none" />
             <div className="niro-phone-image-container relative flex justify-center animate-float-delayed">

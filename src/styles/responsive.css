@@ -878,7 +878,7 @@ svg {
   width: 100%;
 }
 
-/* What’s Happening Around You Is Always Changing. Your Map Should Change Too. */
+/* WhatÃ¢â‚¬â„¢s Happening Around You Is Always Changing. Your Map Should Change Too. */
 .niro-updates-heading {
   font-family: var(--font-inter), 'Inter', sans-serif;
   font-style: normal;
@@ -1012,7 +1012,7 @@ svg {
   border-radius: 12px;
 }
 
-/* Change It. Publish It. It’s Live.: 18px / 30px, letter-spacing 0.1em, uppercase, #FFFFFF */
+/* Change It. Publish It. ItÃ¢â‚¬â„¢s Live.: 18px / 30px, letter-spacing 0.1em, uppercase, #FFFFFF */
 .niro-updates-callout-title {
   font-family: var(--font-inter), 'Inter', sans-serif;
   font-style: normal;
@@ -1086,6 +1086,11 @@ svg {
   .niro-updates-frame-5 {
     /* In a column layout, the desktop 650px flex-basis would create a blank block. */
     flex: 0 0 auto;
+  }
+
+  /* Tablet viewports, including 768px, need a smaller phone preview than desktop. */
+  .niro-updates-section .niro-phone-image-container {
+    width: min(520px, 100%);
   }
   .niro-updates-cards-container {
     width: 100%;
@@ -1281,6 +1286,26 @@ svg {
     font-size: 15px !important;
   }
 
+  /* Keep all interactive labels on one line on narrow phone screens. */
+  @media (max-width: 440px) {
+    button {
+      white-space: nowrap;
+    }
+
+    .niro-change-offer-section button,
+    .niro-search-vs-live-section button,
+    .niro-go-live-section button,
+    .niro-food-truck-section button {
+      width: min(260px, 100%) !important;
+      font-size: clamp(12px, 3.8vw, 14px) !important;
+      letter-spacing: -0.01em;
+    }
+
+    .niro-mobile-controls button {
+      font-size: 13px;
+    }
+  }
+
   /* Centre landing-page CTAs on phones without affecting larger breakpoints. */
   .niro-change-offer-section > div > div > div > button,
   .niro-search-vs-live-section button,
@@ -1291,7 +1316,7 @@ svg {
     margin-right: auto;
   }
   .niro-updates-heading {
-    font-size: clamp(23px, 6vw, 32px);
+    font-size: clamp(26px, 6vw, 32px);
     line-height: 1.25;
   }
 
@@ -1584,7 +1609,7 @@ svg {
   }
 }
 
-/* ========================================================================== 
+/* ==========================================================================
    5. HOW IT WORKS (LIVE MAP WORKFLOW)
    Desktop frame matches the 1920 reference: 1600px panel, 160px side gutters.
    ========================================================================== */
@@ -2451,6 +2476,80 @@ button:active {
   }
 }
 
+/* At exactly 768px wide, use the Change Your Offer heading scale throughout. */
+@media (width: 768px) {
+  :is(
+    .niro-hero-title,
+    .niro-map-heading,
+    .niro-map-heading-line,
+    .niro-map-heading-span,
+    .niro-livemap-title,
+    .niro-updates-heading,
+    .niro-search-vs-live-section h2.heading-write,
+    .niro-go-live-section h2.heading-write,
+    .niro-food-truck-section h2.heading-write,
+    .niro-change-offer-section h2.heading-write
+  ) {
+    font-size: 42px !important;
+    line-height: 54px !important;
+  }
+}
+
+/* Keep every main landing-page title consistent at the 1024px breakpoint. */
+@media (width: 1024px) {
+  :is(
+    .niro-hero-title,
+    .niro-map-heading,
+    .niro-map-heading-line,
+    .niro-map-heading-span,
+    .niro-livemap-title,
+    .niro-updates-heading,
+    .niro-search-vs-live-section h2.heading-write,
+    .niro-go-live-section h2.heading-write,
+    .niro-food-truck-section h2.heading-write,
+    .niro-change-offer-section h2.heading-write
+  ) {
+    font-size: 30px !important;
+    line-height: 40px !important;
+  }
+
+  /* Centre each phone mockup against the content in its two-column section. */
+  .niro-phone-split {
+    align-items: center !important;
+  }
+}
+
+/* Use one title scale for all landing sections at exactly 1280px wide. */
+@media (width: 1280px) {
+  :is(
+    .niro-hero-title,
+    .niro-map-heading,
+    .niro-map-heading-line,
+    .niro-map-heading-span,
+    .niro-livemap-title,
+    .niro-updates-heading,
+    .niro-search-vs-live-section h2.heading-write,
+    .niro-go-live-section h2.heading-write,
+    .niro-food-truck-section h2.heading-write,
+    .niro-change-offer-section h2.heading-write
+  ) {
+    font-size: 40px !important;
+    line-height: 53px !important;
+  }
+}
+
+/* Avoid excessive blank space above and below content on 1920px desktops. */
+@media (width: 1920px) {
+  .niro-change-offer-section,
+  .niro-search-vs-live-section,
+  .niro-go-live-section,
+  .niro-food-truck-section {
+    min-height: 0;
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
 /* iPad Air portrait viewport only: match every landing-page heading to Change Your Offer. */
 @media (width: 820px) and (height: 1180px) {
   :is(
@@ -2640,4 +2739,310 @@ button:active {
     padding-right: 0 !important;
   }
 }
+/* iPad Mini landscape uses the desktop grid at 1024px. Keep its phone
+   mockup and content vertically aligned instead of offsetting the content. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .niro-go-live-section .niro-phone-split {
+    align-items: flex-start;
+  }
+}
 
+/* Preserve the deliberate text offset on wider desktop layouts only. */
+@media (min-width: 1280px) {
+  .niro-go-live-content {
+    padding-top: 44px;
+  }
+}
+/* A 1024px landscape tablet has the desktop page layout, but its localized
+   navigation labels do not fit as a single row. Use the compact header. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .niro-desktop-nav,
+  .niro-desktop-language {
+    display: none;
+  }
+
+  .niro-mobile-controls,
+  .niro-mobile-menu {
+    display: flex;
+  }
+}
+/* iPad Mini portrait: every landing section shares the same 40px page gutter.
+   Live Updates normally centers a 650px inner frame, which creates an extra
+   inset that the other landing sections do not have. */
+@media (width: 768px) and (height: 1024px) {
+  .niro-hero-content,
+  .niro-map-section,
+  .niro-updates-section,
+  .niro-change-offer-section > div,
+  .niro-search-vs-live-section > div,
+  .niro-go-live-section > div,
+  .niro-food-truck-section > div {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+
+  .niro-updates-right-container {
+    max-width: none;
+  }
+
+  .niro-livemap-frame {
+    width: calc(100% - 80px);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE CONSOLIDATION (320pxâ€“3840px)
+   Keeps intrinsic content sizing intact while providing safe fluid bounds.
+   ========================================================================== */
+:root {
+  --niro-gutter: clamp(16px, 4vw, 80px);
+  --niro-section-space: clamp(48px, 7vw, 110px);
+}
+
+.niro-change-offer-section > div,
+.niro-search-vs-live-section > div,
+.niro-go-live-section > div,
+.niro-food-truck-section > div {
+  width: min(100%, 1480px);
+}
+
+.niro-phone-split,
+.niro-people-layout {
+  align-items: center;
+}
+
+.niro-phone-image-container {
+  aspect-ratio: 650 / 776.91;
+}
+
+.niro-phone-image-container > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.niro-mobile-menu {
+  max-height: calc(100dvh - 64px);
+  overflow-y: auto;
+}
+
+.niro-footer-contacts > * {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 639px) {
+  .niro-navbar-inner {
+    min-height: 64px;
+    height: auto;
+  }
+
+  .niro-navbar-logo {
+    width: 96px !important;
+    height: 24px !important;
+  }
+
+  .niro-hero-content {
+    width: 100%;
+    padding-inline: 20px;
+  }
+
+  .niro-phone-split,
+  .niro-people-layout {
+    gap: clamp(32px, 10vw, 48px);
+  }
+
+  .niro-change-offer-section > div,
+  .niro-search-vs-live-section > div,
+  .niro-go-live-section > div,
+  .niro-food-truck-section > div {
+    padding-inline: var(--niro-gutter);
+  }
+
+  .niro-phone-image-container,
+  .niro-updates-section .niro-phone-image-container {
+    width: min(100%, 380px);
+    margin-inline: auto;
+  }
+
+  .niro-change-offer-section button,
+  .niro-search-vs-live-section button,
+  .niro-go-live-section button,
+  .niro-food-truck-section button {
+    max-width: 100% !important;
+    padding-inline: 16px;
+  }
+
+  .niro-people-compare {
+    margin-top: 32px;
+    gap: 12px;
+  }
+
+  .niro-people-compare-box {
+    padding-inline: 16px;
+  }
+
+  .niro-flow-cards-row {
+    width: 100%;
+  }
+
+  .niro-footer-contacts {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .niro-footer-contacts > * {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .niro-footer-bottom-row > div {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 20px;
+  }
+
+  .niro-legal-page {
+    padding-inline: 16px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .niro-change-offer-section,
+  .niro-search-vs-live-section,
+  .niro-go-live-section,
+  .niro-food-truck-section {
+    padding-block: clamp(56px, 8vw, 80px);
+  }
+
+  .niro-change-offer-section > div,
+  .niro-search-vs-live-section > div,
+  .niro-go-live-section > div,
+  .niro-food-truck-section > div {
+    width: min(100%, 720px);
+    padding-inline: var(--niro-gutter);
+  }
+
+  .niro-phone-image-container {
+    width: min(100%, 520px);
+    margin-inline: auto;
+  }
+
+  .niro-flow-cards-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .niro-footer-contacts {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .niro-navbar-inner {
+    padding-inline: clamp(32px, 4vw, 48px);
+  }
+
+  .niro-change-offer-section > div,
+  .niro-search-vs-live-section > div,
+  .niro-go-live-section > div,
+  .niro-food-truck-section > div {
+    padding-inline: clamp(32px, 4vw, 56px);
+  }
+
+  .niro-phone-split,
+  .niro-people-layout {
+    column-gap: clamp(28px, 4vw, 48px);
+  }
+
+  .niro-phone-image-container {
+    width: min(100%, 520px);
+  }
+
+  .niro-go-live-content {
+    padding-top: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .niro-navbar-inner {
+    width: min(calc(100% - 96px), 1440px);
+    max-width: none;
+    padding-inline: 0;
+  }
+
+  .niro-change-offer-section > div,
+  .niro-food-truck-section > div {
+    width: min(calc(100% - 96px), 1480px);
+  }
+
+  .niro-search-vs-live-section > div {
+    width: min(calc(100% - 96px), 1360px);
+  }
+
+  .niro-go-live-section > div {
+    width: min(calc(100% - 96px), 1480px);
+  }
+}
+
+@media (min-width: 1600px) {
+  .niro-phone-split,
+  .niro-people-layout {
+    column-gap: clamp(64px, 6vw, 128px);
+  }
+
+  .niro-updates-section {
+    padding-inline: max(80px, calc((100vw - 1600px) / 2));
+  }
+
+  .niro-map-section {
+    padding-block: clamp(100px, 7vw, 140px);
+  }
+}
+
+@media (min-width: 2560px) {
+  .niro-hero-content,
+  .niro-map-container,
+  .niro-updates-frame-19,
+  .niro-livemap-frame,
+  .niro-footer-inner {
+    transform: none;
+  }
+
+  .niro-hero-section {
+    max-height: 1200px;
+  }
+}
+
+@media (max-width: 359px) {
+  .niro-navbar-inner {
+    padding-inline: 12px;
+  }
+
+  .niro-mobile-controls {
+    gap: 4px;
+  }
+
+  .niro-mobile-controls > .relative {
+    margin-right: 0;
+  }
+
+  .niro-feature-item {
+    align-items: flex-start;
+    gap: 12px;
+    padding-inline: 0;
+  }
+
+  .niro-feature-icon-box {
+    width: 56px;
+    min-width: 56px;
+    height: 56px;
+    min-height: 56px;
+  }
+
+  .niro-feature-title {
+    font-size: 19px;
+    line-height: 1.25;
+  }
+}
