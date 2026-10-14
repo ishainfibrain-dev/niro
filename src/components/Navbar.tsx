@@ -25,21 +25,18 @@ export default function Navbar() {
     e.preventDefault();
     const target = document.querySelector<HTMLElement>(href);
     if (target) {
-      const isStackedNavigation = window.matchMedia("(max-width: 1279px)").matches;
+      window.requestAnimationFrame(() => {
+        const headerHeight = document.querySelector<HTMLElement>(".niro-navbar")?.getBoundingClientRect().height ?? 0;
+        const targetTop = window.scrollY + target.getBoundingClientRect().top;
 
-      if (isStackedNavigation) {
-        window.requestAnimationFrame(() => {
-          const headerHeight = document.querySelector<HTMLElement>(".niro-navbar")?.getBoundingClientRect().height ?? 0;
-          const targetTop = window.scrollY + target.getBoundingClientRect().top;
-          window.scrollTo({
-            top: Math.max(0, targetTop - headerHeight - 16),
-            behavior: "smooth",
-          });
+        // Every navigation target begins at the same distance below the
+        // sticky header. Do not centre shorter sections: that makes the
+        // visible top gap depend on each section's height.
+        window.scrollTo({
+          top: Math.max(0, targetTop - headerHeight - 16),
+          behavior: "smooth",
         });
-      } else {
-        // Desktop sections define their own scroll margin to clear the sticky header.
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+      });
 
       window.history.pushState(null, "", href);
     }
@@ -198,9 +195,11 @@ export default function Navbar() {
           </div>
           <button
             type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={() => setMobileMenuOpen((isOpen) => !isOpen)}
             className="text-white p-2 focus:outline-none"
             aria-label="Toggle Menu"
+            aria-controls="niro-mobile-menu"
+            aria-expanded={mobileMenuOpen}
           >
             <svg
               className="w-6 h-6"
@@ -229,7 +228,10 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="niro-mobile-menu bg-black/95 border-b border-white/10 px-6 py-5 flex flex-col gap-4 backdrop-blur-lg">
+        <div
+          id="niro-mobile-menu"
+          className="niro-mobile-menu bg-black/95 border-b border-white/10 px-6 py-5 flex flex-col gap-4 backdrop-blur-lg"
+        >
           {navLinks.map((link) => (
             <a
               key={link.name}

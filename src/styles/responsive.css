@@ -399,6 +399,7 @@ svg {
   align-items: center;
   gap: 20px;
   width: 100%;
+  min-height: 180px;
   justify-content: center;
 }
 
@@ -653,6 +654,7 @@ svg {
     flex-direction: row;
     align-items: center;
     gap: 18px;
+    min-height: 158px;
     text-align: left;
     padding-left: 8px;
     padding-right: 8px;
@@ -670,6 +672,7 @@ svg {
     width: auto;
     flex: 1;
     max-width: none;
+    min-width: 0;
     min-height: 118px;
   }
 
@@ -726,11 +729,18 @@ svg {
 
   .niro-feature-item {
     gap: 14px;
+    min-height: 148px;
   }
 
   .niro-feature-icon-box {
     width: 60px;
     height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+  }
+
+  .niro-feature-text {
+    min-width: 0;
   }
 
   .niro-feature-title {
@@ -1398,13 +1408,20 @@ svg {
     min-height: calc(100vh - 84px);
     display: flex;
     align-items: center;
-    padding-top: 24px;
+    /* Keep the heading clear of the navbar on every desktop language variant. */
+    padding-top: 52px;
     padding-bottom: 24px;
   }
 
   .niro-change-offer-section .niro-phone-image-container {
-    height: min(776.91px, calc(100vh - 132px));
-    width: min(650px, calc((100vh - 132px) * 0.83665));
+    /* Reserve room for the 52px heading inset and the complete CTA. */
+    height: min(720px, calc(100vh - 176px));
+    width: min(603px, calc((100vh - 176px) * 0.83665));
+  }
+
+  .niro-change-offer-section h2.heading-write {
+    font-size: 38px;
+    line-height: 48px;
   }
 }
 
@@ -1594,6 +1611,22 @@ svg {
 }
 
 @media (min-width: 1024px) {
+  /* Keep the Spanish "Para negocios" anchor target fully framed just like
+     "Negocios móviles": constrain the phone to the usable viewport and
+     centre the complete section beneath the sticky header. */
+  .niro-go-live-section {
+    min-height: calc(100vh - 84px);
+    display: flex;
+    align-items: center;
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .niro-go-live-section .niro-phone-image-container {
+    height: min(776.91px, calc(100vh - 180px));
+    width: min(650px, calc((100vh - 180px) * 0.83665));
+  }
+
   /* Keep the Mobile Business section vertically balanced in the viewport. */
   .niro-food-truck-section {
     min-height: calc(100vh - 84px);
@@ -2523,8 +2556,8 @@ button:active {
     .niro-food-truck-section h2.heading-write,
     .niro-change-offer-section h2.heading-write
   ) {
-    font-size: 42px !important;
-    line-height: 54px !important;
+    font-size: 31px !important;
+    line-height: 43px !important;
   }
 }
 
@@ -2555,7 +2588,6 @@ button:active {
 /* Use one title scale for all landing sections at exactly 1280px wide. */
 @media (width: 1280px) {
   :is(
-    .niro-hero-title,
     .niro-map-heading,
     .niro-map-heading-line,
     .niro-map-heading-span,
@@ -2566,20 +2598,23 @@ button:active {
     .niro-food-truck-section h2.heading-write,
     .niro-change-offer-section h2.heading-write
   ) {
-    font-size: 40px !important;
+    font-size: 37px !important;
     line-height: 53px !important;
+  }
+
+  /* The phone image includes promotion cards that extend left of its frame.
+     Give that overhang a clear lane past the final Food Truck flow step. */
+  .niro-food-truck-section .niro-phone-split > :last-child {
+    left: 64px;
   }
 }
 
-/* Avoid excessive blank space above and below content on 1920px desktops. */
+/* Keep desktop navigation targets viewport-sized at 1920px as well. */
 @media (width: 1920px) {
-  .niro-change-offer-section,
-  .niro-search-vs-live-section,
-  .niro-go-live-section,
-  .niro-food-truck-section {
-    min-height: 0;
-    padding-top: 48px;
-    padding-bottom: 48px;
+  .niro-change-offer-section {
+    min-height: calc(100vh - 84px);
+    padding-top: 52px;
+    padding-bottom: 24px;
   }
 }
 
@@ -2784,6 +2819,138 @@ button:active {
 @media (min-width: 1280px) {
   .niro-go-live-content {
     padding-top: 44px;
+  }
+}
+
+/* A 1366px-wide desktop still uses the two-column layout, but long Spanish
+   business headings are wider than their columns. Let each authored heading
+   line use its own column so it wraps instead of running beneath the phone. */
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .niro-go-live-section h2.heading-write,
+  .niro-food-truck-section h2.heading-write,
+  .niro-updates-heading {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  .niro-go-live-section .heading-line,
+  .niro-food-truck-section .heading-line,
+  .niro-updates-heading .heading-line {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: normal;
+    clip-path: none;
+    animation: none;
+  }
+
+  /* The Food Truck mockup includes floating cards that extend beyond the
+     device frame. Give those cards a clear lane beside the content column. */
+  .niro-food-truck-section .niro-phone-split > :last-child {
+    left: 32px;
+  }
+}
+
+/* At exactly 1440px the Live Updates content column is still narrower than
+   the Spanish title at its desktop scale. Keep the title inside that column
+   without changing any neighbouring desktop width. */
+@media (width: 1440px) {
+  .niro-updates-heading {
+    font-size: 36px;
+    line-height: 46px;
+  }
+
+  .niro-updates-heading .heading-line {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: normal;
+    clip-path: none;
+    animation: none;
+  }
+
+  /* Match the 38px title scale used by the Change Your Offer section while
+     keeping the Spanish business title inside its right-hand column. */
+  .niro-go-live-section h2.heading-write {
+    font-size: 38px;
+    line-height: 48px;
+  }
+
+  .niro-go-live-section .heading-line {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: normal;
+    clip-path: none;
+    animation: none;
+  }
+
+  .niro-food-truck-section h2.heading-write {
+    font-size: 38px;
+    line-height: 48px;
+  }
+
+  .niro-food-truck-section .heading-line {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: normal;
+    clip-path: none;
+    animation: none;
+  }
+}
+
+/* Keep the two phone-and-content sections on one shared desktop title scale.
+   Long localized copy must wrap inside its text column instead of crossing
+   into the neighbouring phone mockup at intermediate desktop widths. */
+.niro-go-live-section h2.heading-write,
+.niro-food-truck-section h2.heading-write {
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 1280px) {
+  .niro-go-live-section h2.heading-write,
+  .niro-food-truck-section h2.heading-write {
+    /* Match the desktop title scale used by Change Your Offer. */
+    font-size: 38px;
+    line-height: 48px;
+  }
+
+  .niro-go-live-section .heading-line,
+  .niro-food-truck-section .heading-line {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: normal;
+    clip-path: none;
+    animation: none;
+  }
+}
+
+/* Exact Spanish title scale at 1366px. */
+@media (width: 1366px) {
+  /* m4's left floating promotion card reaches into the final flow pill at
+     this exact desktop width. Shift only its preview right to restore the
+     same clear separation seen at wider desktop breakpoints. */
+  .niro-food-truck-section .niro-phone-split > :last-child {
+    left: 80px;
+  }
+
+  html[lang="es"] :is(
+    .niro-hero-title,
+    .niro-map-heading,
+    .niro-map-heading-line,
+    .niro-map-heading-span,
+    .niro-livemap-title,
+    .niro-updates-heading,
+    .niro-search-vs-live-section h2.heading-write,
+    .niro-go-live-section h2.heading-write,
+    .niro-food-truck-section h2.heading-write,
+    .niro-change-offer-section h2.heading-write
+  ) {
+    font-size: 42px !important;
+    line-height: 56px !important;
   }
 }
 /* A 1024px landscape tablet has the desktop page layout, but its localized
@@ -3034,6 +3201,27 @@ button:active {
   }
 }
 
+/* Change Offer is the only desktop phone layout that needs a top-aligned
+   device. The other pages retain their own centred, size-aware layouts. */
+@media (min-width: 1024px) {
+  .niro-change-offer-section .niro-phone-split {
+    align-items: flex-start;
+  }
+
+  .niro-change-offer-section .niro-phone-image-container {
+    margin-top: -20px;
+  }
+}
+/* This portrait breakpoint intentionally centres the Live Updates device. */
+@media (width: 1024px) and (height: 1366px) {
+  .niro-updates-frame-19 {
+    align-items: center !important;
+  }
+
+  .niro-updates-frame-19 .niro-phone-image-container {
+    margin-top: 0;
+  }
+}
 @media (min-width: 2560px) {
   .niro-hero-content,
   .niro-map-container,
@@ -3080,6 +3268,24 @@ button:active {
   }
 }
 
+/* Preserve the intended two-line Spanish hero title across phone viewports.
+   The final word of line one must not wrap on its own. */
+@media (max-width: 639px) {
+  html[lang="es"] .niro-hero-content {
+    padding-inline: 16px;
+  }
+
+  html[lang="es"] .niro-hero-title {
+    font-size: clamp(22px, 6vw, 24px);
+    line-height: 1.25;
+    padding-inline: 0;
+  }
+
+  html[lang="es"] .niro-hero-title .heading-line {
+    white-space: nowrap;
+  }
+}
+
 /* Keep the food-truck update flow on one row on desktop, including Spanish labels. */
 @media (min-width: 1024px) {
   .niro-truck-steps {
@@ -3108,8 +3314,17 @@ button:active {
 }
 
 
-/* iPad Pro portrait: keep both comparison-card labels on one baseline. */
-@media (width: 1024px) and (height: 1366px) {
+/* At 1024px, keep the text in both comparison boxes and every flow card
+   starting from a shared horizontal alignment line. */
+@media (width: 1024px) {
+  .niro-people-compare {
+    align-items: stretch;
+  }
+
+  .niro-people-compare-box {
+    align-items: flex-start;
+  }
+
   .niro-people-compare-label {
     min-height: 20px;
     font-size: 14px;
@@ -3119,5 +3334,270 @@ button:active {
 
   .niro-people-compare-quote {
     margin-top: 6px;
+  }
+
+  .niro-flow-cards-row {
+    align-items: stretch;
+  }
+
+  .niro-flow-card {
+    align-self: stretch;
+  }
+
+  .niro-flow-card-title {
+    min-height: 66px;
+  }
+}
+
+/* Exact 360px typography for the Live Updates title. */
+@media (width: 360px) {
+  .niro-updates-heading {
+    font-size: clamp(23px, 6vw, 32px);
+    line-height: 1.5;
+  }
+}
+
+/* Keep phone previews stable on mobile instead of continuously floating. */
+@media (max-width: 639px) {
+  .animate-float,
+  .animate-float-delayed,
+  .animate-float-reverse {
+    animation: none;
+  }
+}
+
+/* Exact 414px title typography for the phone-and-content sections. */
+@media (width: 414px) {
+  .niro-search-vs-live-section h2.heading-write,
+  .niro-go-live-section h2.heading-write,
+  .niro-food-truck-section h2.heading-write,
+  .niro-change-offer-section h2.heading-write {
+    font-size: clamp(22px, 8.4vw, 29px);
+    line-height: 1.286;
+  }
+}
+
+/* Restore the shared desktop heading scale. Individual narrow-width rules
+   above must not enlarge landing-section titles on regular desktop screens. */
+@media (min-width: 1024px) {
+  :is(
+    .niro-map-heading,
+    .niro-map-heading-line,
+    .niro-map-heading-span,
+    .niro-livemap-title,
+    .niro-updates-heading,
+    .niro-search-vs-live-section h2.heading-write,
+    .niro-go-live-section h2.heading-write,
+    .niro-food-truck-section h2.heading-write,
+    .niro-change-offer-section h2.heading-write
+  ) {
+    font-size: 42px !important;
+    line-height: 54px !important;
+  }
+}
+
+/* Exact 1024px tablet/compact-desktop composition. */
+@media (width: 1024px) {
+  :is(
+    .niro-map-heading,
+    .niro-map-heading-line,
+    .niro-map-heading-span,
+    .niro-livemap-title,
+    .niro-updates-heading,
+    .niro-search-vs-live-section h2.heading-write,
+    .niro-go-live-section h2.heading-write,
+    .niro-food-truck-section h2.heading-write,
+    .niro-change-offer-section h2.heading-write
+  ) {
+    font-size: 35px !important;
+    line-height: 40px !important;
+  }
+
+  /* Keep the phone in its original column. Compact only the flow controls so
+     their final box clears m4's left floating promotion card. */
+  .niro-food-truck-section .niro-truck-steps {
+    padding-left: 0;
+    gap: 6px;
+  }
+
+  .niro-food-truck-section .niro-truck-step {
+    min-width: 0 !important;
+    min-height: 36px !important;
+    padding: 0 10px !important;
+    font-size: 13px !important;
+  }
+
+  .niro-food-truck-section .niro-truck-step-arrow {
+    font-size: 15px;
+  }
+
+  .niro-food-truck-section .niro-phone-split > :last-child {
+    left: 16px;
+  }
+
+  .niro-food-truck-section .niro-phone-image-container {
+    scale: 0.96;
+    transform-origin: center;
+  }
+}
+
+/* iPhone SE (375 x 667): every landing-section H2 uses one shared scale. */
+@media (width: 375px) and (height: 667px) {
+  :is(
+    .niro-map-heading,
+    .niro-map-heading-line,
+    .niro-map-heading-span,
+    .niro-livemap-title,
+    .niro-updates-heading,
+    .niro-search-vs-live-section h2.heading-write,
+    .niro-go-live-section h2.heading-write,
+    .niro-food-truck-section h2.heading-write,
+    .niro-change-offer-section h2.heading-write
+  ) {
+    font-size: clamp(25px, 6vw, 32px) !important;
+    line-height: 1.28 !important;
+  }
+}
+
+/* Shared title scale: every primary landing-section H2 follows the same
+   typography at a given viewport width. This prevents one section's title
+   from becoming larger than the titles immediately above or below it. */
+@media (max-width: 374px) {
+  :is(.niro-map-heading, .niro-map-heading-line, .niro-map-heading-span, .niro-livemap-title, .niro-updates-heading, .niro-search-vs-live-section h2.heading-write, .niro-go-live-section h2.heading-write, .niro-food-truck-section h2.heading-write, .niro-change-offer-section h2.heading-write) {
+    font-size: 24px !important;
+    line-height: 32px !important;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 480px) {
+  :is(.niro-map-heading, .niro-map-heading-line, .niro-map-heading-span, .niro-livemap-title, .niro-updates-heading, .niro-search-vs-live-section h2.heading-write, .niro-go-live-section h2.heading-write, .niro-food-truck-section h2.heading-write, .niro-change-offer-section h2.heading-write) {
+    font-size: 26px !important;
+    line-height: 34px !important;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 639px) {
+  :is(.niro-map-heading, .niro-map-heading-line, .niro-map-heading-span, .niro-livemap-title, .niro-updates-heading, .niro-search-vs-live-section h2.heading-write, .niro-go-live-section h2.heading-write, .niro-food-truck-section h2.heading-write, .niro-change-offer-section h2.heading-write) {
+    font-size: 28px !important;
+    line-height: 36px !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  :is(.niro-map-heading, .niro-map-heading-line, .niro-map-heading-span, .niro-livemap-title, .niro-updates-heading, .niro-search-vs-live-section h2.heading-write, .niro-go-live-section h2.heading-write, .niro-food-truck-section h2.heading-write, .niro-change-offer-section h2.heading-write) {
+    font-size: 30px !important;
+    line-height: 40px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 820px) {
+  :is(.niro-map-heading, .niro-map-heading-line, .niro-map-heading-span, .niro-livemap-title, .niro-updates-heading, .niro-search-vs-live-section h2.heading-write, .niro-go-live-section h2.heading-write, .niro-food-truck-section h2.heading-write, .niro-change-offer-section h2.heading-write) {
+    font-size: 31px !important;
+    line-height: 43px !important;
+  }
+}
+
+@media (min-width: 821px) and (max-width: 1023px) {
+  :is(.niro-map-heading, .niro-map-heading-line, .niro-map-heading-span, .niro-livemap-title, .niro-updates-heading, .niro-search-vs-live-section h2.heading-write, .niro-go-live-section h2.heading-write, .niro-food-truck-section h2.heading-write, .niro-change-offer-section h2.heading-write) {
+    font-size: 32px !important;
+    line-height: 42px !important;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1279px) {
+  :is(.niro-map-heading, .niro-map-heading-line, .niro-map-heading-span, .niro-livemap-title, .niro-updates-heading, .niro-search-vs-live-section h2.heading-write, .niro-go-live-section h2.heading-write, .niro-food-truck-section h2.heading-write, .niro-change-offer-section h2.heading-write) {
+    font-size: 36px !important;
+    line-height: 46px !important;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1439px) {
+  :is(.niro-map-heading, .niro-map-heading-line, .niro-map-heading-span, .niro-livemap-title, .niro-updates-heading, .niro-search-vs-live-section h2.heading-write, .niro-go-live-section h2.heading-write, .niro-food-truck-section h2.heading-write, .niro-change-offer-section h2.heading-write) {
+    font-size: 37px !important;
+    line-height: 53px !important;
+  }
+}
+
+@media (min-width: 1440px) and (max-width: 1599px) {
+  :is(.niro-map-heading, .niro-map-heading-line, .niro-map-heading-span, .niro-livemap-title, .niro-updates-heading, .niro-search-vs-live-section h2.heading-write, .niro-go-live-section h2.heading-write, .niro-food-truck-section h2.heading-write, .niro-change-offer-section h2.heading-write) {
+    font-size: 40px !important;
+    line-height: 52px !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  :is(.niro-map-heading, .niro-map-heading-line, .niro-map-heading-span, .niro-livemap-title, .niro-updates-heading, .niro-search-vs-live-section h2.heading-write, .niro-go-live-section h2.heading-write, .niro-food-truck-section h2.heading-write, .niro-change-offer-section h2.heading-write) {
+    font-size: 42px !important;
+    line-height: 54px !important;
+  }
+}
+
+/* Keep the requested iPhone SE title scale after the shared rules above. */
+@media (width: 375px) and (height: 667px) {
+  :is(.niro-map-heading, .niro-map-heading-line, .niro-map-heading-span, .niro-livemap-title, .niro-updates-heading, .niro-search-vs-live-section h2.heading-write, .niro-go-live-section h2.heading-write, .niro-food-truck-section h2.heading-write, .niro-change-offer-section h2.heading-write) {
+    font-size: clamp(25px, 6vw, 32px) !important;
+    line-height: 1.28 !important;
+  }
+}
+
+/* Spanish business copy adds one heading line on desktop. Tighten only the
+   internal gaps in that column so its feature list and CTA align with the
+   English composition instead of being pushed below the viewport. */
+@media (min-width: 1024px) {
+  html[lang="es"] .niro-go-live-content > h2 + p {
+    margin-top: 10px !important;
+  }
+
+  html[lang="es"] .niro-go-live-content > h2 + p + div,
+  html[lang="es"] .niro-go-live-content > h2 + p + div + p {
+    margin-top: 16px !important;
+  }
+
+  /* The Spanish promotions copy is taller than English. Compact only its
+     vertical rhythm so the CTA remains inside the anchor target viewport. */
+  html[lang="es"] .niro-change-offer-section .niro-phone-split > :first-child > h2 + div {
+    margin-top: 14px !important;
+  }
+
+  html[lang="es"] .niro-change-offer-section .niro-phone-split > :first-child > h2 + div + div,
+  html[lang="es"] .niro-change-offer-section .niro-phone-split > :first-child > h2 + div + div + p {
+    margin-top: 20px !important;
+  }
+
+  html[lang="es"] .niro-change-offer-section .niro-phone-split > :first-child > h2 + div + div + p + button {
+    margin-top: 16px !important;
+  }
+
+  /* Do the same for the longer Spanish food-truck content without changing
+     its typography or the English layout. */
+  html[lang="es"] .niro-food-truck-section .niro-phone-split > :first-child > h2 + div {
+    margin-top: 16px !important;
+  }
+
+  html[lang="es"] .niro-food-truck-section .niro-phone-split > :first-child > h2 + div > p + p {
+    margin-top: 10px !important;
+  }
+
+  html[lang="es"] .niro-food-truck-section .niro-phone-split > :first-child > h2 + div + div {
+    margin-top: 24px !important;
+  }
+
+  html[lang="es"] .niro-food-truck-section .niro-phone-split > :first-child > h2 + div + div + div,
+  html[lang="es"] .niro-food-truck-section .niro-phone-split > :first-child > h2 + div + div + div + p {
+    margin-top: 20px !important;
+  }
+
+  html[lang="es"] .niro-food-truck-section .niro-phone-split > :first-child > h2 + div + div + div + p + button {
+    margin-top: 16px !important;
+  }
+}
+
+/* On short desktop windows, keep the full Spanish promotions composition
+   (including its CTA) inside the viewport reached by the header hash link.
+   Spanish wraps more card copy than English, so this small inset adjustment is
+   deliberately limited to that language, section, and viewport height. */
+@media (min-width: 1024px) and (max-height: 950px) {
+  html[lang="es"] .niro-change-offer-section {
+    padding-top: 28px;
   }
 }
